@@ -157,7 +157,6 @@ static NSString *CellIdentifier = @"Industry Cell";
         
     }
     
-    
     [self presentViewController:viewController animated:YES completion:nil];
 }
 

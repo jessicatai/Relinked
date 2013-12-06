@@ -8,12 +8,16 @@
 
 #import "SuggestionsCDTVC.h"
 #import "MakeRequestViewController.h"
+#import "Request+Relinked.h"
 
 @interface SuggestionsCDTVC ()
 
 @end
 
 @implementation SuggestionsCDTVC
+- (IBAction)changeSearchFilters:(UIBarButtonItem *)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 //- (void) setCurrentUser:(User *)currentUser
 //{
@@ -68,7 +72,14 @@
             }];
         });
     }
-    cell.selected = NO;
+    
+    // display a checkmark if there's already an open request for this connection
+    if ([Request allRequestsInvolvingUser:cxn withStatus:@"open"]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
     return cell;
 }
 

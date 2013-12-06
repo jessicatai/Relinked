@@ -21,10 +21,17 @@
 
 - (IBAction)acceptRequest:(UIButton *)sender {
     NSLog(@"clicked accept");
+    // update request status to accept
+    NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
+    [self.cdtvc updateRequestwitIndexPath:indexPath forAction:@"update" forStatus:@"accept"];
+    
 }
 
 - (IBAction)ignoreRequest:(UIButton *)sender {
     NSLog(@"clicked ignore");
+    // update request status to ignore
+    NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
+    [self.cdtvc updateRequestwitIndexPath:indexPath forAction:@"update" forStatus:@"ignore"];
 }
 
 

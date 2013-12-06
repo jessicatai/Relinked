@@ -18,16 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TO/FROM: Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="133" translatesAutoresizingMaskIntoConstraints="NO" id="UpX-WX-VcH">
-                        <rect key="frame" x="90" y="15" width="133" height="21"/>
+                        <rect key="frame" x="95" y="25" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Headline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KU-o9-LxP">
-                        <rect key="frame" x="90" y="44" width="68" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cq4-28-CGM">
@@ -59,7 +53,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="acceptButton" destination="cq4-28-CGM" id="oJv-p0-iGB"/>
-                <outlet property="detailTextLabel" destination="9KU-o9-LxP" id="PsY-We-9gi"/>
                 <outlet property="ignoreButton" destination="lIB-Js-3GX" id="m3m-iQ-PR8"/>
                 <outlet property="imageView" destination="mIB-pL-Hjn" id="m9p-VM-pMo"/>
                 <outlet property="textLabel" destination="UpX-WX-VcH" id="Rif-Rv-yRg"/>

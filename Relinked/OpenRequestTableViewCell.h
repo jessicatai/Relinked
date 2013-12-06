@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RequestsCDTVC.h"
 
 @interface OpenRequestTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) RequestsCDTVC *cdtvc;
 
 @end

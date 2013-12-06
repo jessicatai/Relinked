@@ -23,7 +23,8 @@
 }
 
 - (IBAction)requestRelink:(UIButton *)sender {
-    [Request addNewRequestFromUserID:self.currentUser.userID toUserID:self.connection.userID withAction:@"insert" inManagedObjectContext:self.currentUser.managedObjectContext];
+    NSString *today = [RelinkedStanfordServerRequest convertDateToString:[[NSDate alloc] init]];
+    [Request addNewRequestFromUserID:self.currentUser.userID toUserID:self.connection.userID withAction:@"insert" withStatus:@"open" withDate:today inManagedObjectContext:self.currentUser.managedObjectContext];
     
     // go back to the search results
     [self.navigationController popViewControllerAnimated:YES];

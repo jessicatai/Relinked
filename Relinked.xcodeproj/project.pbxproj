@@ -228,11 +228,8 @@
 				D50250901850607400E65912 /* CurrentUserNavigationController.m */,
 				D50250921850679C00E65912 /* CurrentUserCDTVC.h */,
 				D50250931850679C00E65912 /* CurrentUserCDTVC.m */,
-				D502508C18504C8600E65912 /* SuggestionsCDTVC.h */,
-				D502508D18504C8600E65912 /* SuggestionsCDTVC.m */,
+				D50250BD1851DDEB00E65912 /* Relink Suggestions */,
 				D502509818512AC000E65912 /* RequestsVC */,
-				D50250B11851928900E65912 /* MakeRequestViewController.h */,
-				D50250B21851928900E65912 /* MakeRequestViewController.m */,
 				D50250B91851B13C00E65912 /* OpenRequestTableViewCell.h */,
 				D50250BA1851B13C00E65912 /* OpenRequestTableViewCell.m */,
 			);
@@ -248,6 +245,17 @@
 				D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		D50250BD1851DDEB00E65912 /* Relink Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				D502508C18504C8600E65912 /* SuggestionsCDTVC.h */,
+				D502508D18504C8600E65912 /* SuggestionsCDTVC.m */,
+				D50250B11851928900E65912 /* MakeRequestViewController.h */,
+				D50250B21851928900E65912 /* MakeRequestViewController.m */,
+			);
+			name = "Relink Suggestions";
 			sourceTree = "<group>";
 		};
 		D5B2AC8F184D96D60052BF33 = {

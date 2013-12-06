@@ -57,9 +57,6 @@
         IndustryTVC *industryTVC = (IndustryTVC *) segue.destinationViewController;
         industryTVC.currentUser = self.currentUser;
         industryTVC.contactMethods = [self selectedContactMethods];
-        
-        // testing
-        [User prefArrayRequestForTableName:@"ContactMethod" forCurrentUserID:self.currentUser.userID withPreferences:[self selectedContactMethods]];
     }
 }
 

@@ -11,5 +11,6 @@
 #import "RelinkedStanfordServerRequest.h"
 
 @interface RequestsCDTVC : CurrentUserCDTVC
-
+- (NSString *) getDetailedTextForRequest:(Request *)request; // abstract
+-(void) updateRequestwitIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status;
 @end

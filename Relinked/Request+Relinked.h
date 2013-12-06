@@ -18,5 +18,7 @@
 + (void)addNewRequestFromUserID:(NSString *)fromID
                        toUserID:(NSString *)toID
                      withAction:(NSString *) action
+                     withStatus:(NSString *)status
+                       withDate:(NSString *)date
          inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

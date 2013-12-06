@@ -20,7 +20,7 @@
     NSManagedObjectContext *context = self.currentUser.managedObjectContext;
     if (context) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Request"];
-        request.predicate = [NSPredicate predicateWithFormat:@"(toID = %@ or fromID = %@) and status=%@", self.currentUser.userID, self.currentUser.userID, ACCEPT_STATUS];
+        request.predicate = [NSPredicate predicateWithFormat:@"(toID = %@ or fromID = %@) and status =%@", self.currentUser.userID, self.currentUser.userID, ACCEPT_STATUS];
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sentDate" ascending:NO];
         request.sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
         
@@ -30,6 +30,14 @@
                                                                                        cacheName:nil];
     } else {
         self.fetchedResultsController = nil;
+    }
+}
+
+- (NSString *) getDetailedTextForRequest:(Request *)request {
+    if ([request.status isEqualToString:OPEN_STATUS]) {
+        return @"No response yet";
+    } else {
+        return @"Accepted";
     }
 }
 @end

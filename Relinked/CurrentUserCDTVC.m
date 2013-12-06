@@ -18,6 +18,7 @@
 {
     _currentUser = currentUser;
     self.debug = YES;
+    [self.tableView reloadData];
 }
 
 - (void) viewWillAppear:(BOOL)animated { // TODO: change to view did load?

@@ -25,17 +25,17 @@
     static NSString *cellIdentifier;
     UITableViewCell *cell;
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    User *connection;
-    NSLog(@"request to id %@, current user id %@", request.toID, self.currentUser.userID);
-    if ([request.toID isEqualToString:self.currentUser.userID ]) { // request sent to current user
+    User *connection = [request.toID isEqualToString:self.currentUser.userID] ? [User getUserWithID:request.fromID inManagedObjectContext:self.currentUser.managedObjectContext] : [User getUserWithID:request.toID inManagedObjectContext:self.currentUser.managedObjectContext];
+    
+    if ([request.toID isEqualToString:self.currentUser.userID] && ![request.status isEqualToString:ACCEPT_STATUS]) { // request sent to current user
         cellIdentifier = @"Open Request Cell";
         cell = (OpenRequestTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        
-        connection = [User getUserWithID:request.fromID inManagedObjectContext:self.currentUser.managedObjectContext];
+        OpenRequestTableViewCell *openReqCell = (OpenRequestTableViewCell *)cell;
+        openReqCell.cdtvc = self; // give cdtvc for accept/ignore buttons
+        cell = openReqCell;
     } else { // current user sent the request
         cellIdentifier = @"Request Cell";
         cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        connection = [User getUserWithID:request.toID inManagedObjectContext:self.currentUser.managedObjectContext];
     }
     
     
@@ -43,7 +43,8 @@
     NSString *connectionName = [NSString stringWithFormat:@"%@ %@", connection.firstName, connection.lastName];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[request.toID isEqualToString:self.currentUser.userID ] ? @"FROM": @"TO", connectionName];
-    cell.detailTextLabel.text = connection.headline;
+    cell.detailTextLabel.text = [self getDetailedTextForRequest:request];
+    NSLog(@"detailed text %@", cell.detailTextLabel.text);
     
     cell.imageView.image = [UIImage imageWithData:connection.thumbnailData];
     // fetch thumbnail data, only if there is a thumbnail to fetch, if have not requested before
@@ -59,7 +60,7 @@
             }];
         });
     }
-    cell.selected = NO;
+    
     return cell;
 }
 
@@ -67,6 +68,17 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 72;
+}
+
+// abstract
+- (NSString *) getDetailedTextForRequest:(Request *)request {
+    return nil;
+}
+
+-(void) updateRequestwitIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status{
+    Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSString *date = [RelinkedStanfordServerRequest convertDateToString:request.sentDate];
+    [Request addNewRequestFromUserID:request.fromUser.userID toUserID:request.toUser.userID withAction:action withStatus:status withDate:date inManagedObjectContext:request.managedObjectContext];
 }
 
 @end

@@ -46,5 +46,9 @@
     
 }
 
+- (NSString *) getDetailedTextForRequest:(Request *)request {
+    return request.toUser.userID == self.currentUser.userID ? request.fromUser.headline : request.toUser.headline;
+}
+
 
 @end

@@ -70,25 +70,25 @@
     return requestEntity;
 }
 
-+ (NSArray *) allRequestsInvolvingUser:(User *) currentUser withStatus:(NSString *)status {
++ (NSArray *) allRequestsInvolvingUser:(User *) user withStatus:(NSString *)status {
    
-    NSString *unique = currentUser.userID;
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-    request.predicate = [NSPredicate predicateWithFormat:@"fromID = %@ or toID=%@", unique, unique];
+    NSString *unique = user.userID;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Request"];
+    request.predicate = [NSPredicate predicateWithFormat:@"(fromID = %@ or toID=%@) and status=%@", unique, unique, status];
     
     NSError *error;
-    NSArray *matches = [currentUser.managedObjectContext executeFetchRequest:request error:&error];
+    NSArray *matches = [user.managedObjectContext executeFetchRequest:request error:&error];
     
     if (!matches || error) {
         // handle error
-        NSLog(@"Error in creating/accessing request; context %@", currentUser.managedObjectContext);
+        NSLog(@"Error in creating/accessing request; context %@", user.managedObjectContext);
         // delete any currently stored users
         for (NSManagedObject *user in matches) {
-            [currentUser.managedObjectContext deleteObject:user];
+            [user.managedObjectContext deleteObject:user];
         }
         
-    } else {
-        NSLog(@"found the requst!");
+    } else if ([matches count] > 0) {
+        NSLog(@"found the requst! %@", matches);
         return matches;
     }
     return nil;
@@ -117,19 +117,20 @@
 + (void)addNewRequestFromUserID:(NSString *)fromID
                        toUserID:(NSString *)toID
                      withAction:(NSString *) action
+                     withStatus:(NSString *)status
+                       withDate:(NSString *)date
          inManagedObjectContext:(NSManagedObjectContext *)context {
     NSString *tableName = @"Request";
-    NSString *today = [RelinkedStanfordServerRequest convertDateToString:[[NSDate alloc] init]];
     
-    NSString *url= [NSString stringWithFormat:@"%@?tableName=%@&fromID=%@&toID=%@&sentDate=%@&action=%@", QUICKNDIRTY_REQUEST_URL_BEGINNING, tableName, fromID, toID, today, action];
+    NSString *url= [NSString stringWithFormat:@"%@?tableName=%@&fromID=%@&toID=%@&sentDate=%@&action=%@&status=%@", QUICKNDIRTY_REQUEST_URL_BEGINNING, tableName, fromID, toID, date, action, status];
     [RelinkedStanfordServerRequest executeQuickNDirtyQuery:url];
     
     // also add this Core Data
     NSDictionary *requestInfo = @{
                                   @"fromID" : fromID,
                                   @"toID": toID,
-                                  @"sentDate": today,
-                                  @"status" : @"open",
+                                  @"sentDate": date,
+                                  @"status" : status,
                                   };
     [self requestWithInfo:requestInfo inManagedObjectContext:context];
 }
