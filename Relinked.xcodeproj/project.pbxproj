@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5025077184EF7D500E65912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025076184EF7D500E65912 /* User.m */; };
+		D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */ = {isa = PBXBuildFile; fileRef = D502507C184EF7FB00E65912 /* User+LinkedIn.m */; };
+		D5025081184F29C700E65912 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025080184F29C700E65912 /* SearchViewController.m */; };
+		D5025088185019FF00E65912 /* RelinkedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025087185019FF00E65912 /* RelinkedUserDefaults.m */; };
+		D502508E18504C8600E65912 /* SuggestionsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D502508D18504C8600E65912 /* SuggestionsCDTVC.m */; };
+		D50250911850607400E65912 /* CurrentUserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250901850607400E65912 /* CurrentUserNavigationController.m */; };
+		D50250941850679C00E65912 /* CurrentUserCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250931850679C00E65912 /* CurrentUserCDTVC.m */; };
+		D502509718512A3C00E65912 /* FindingConnectionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D502509618512A3C00E65912 /* FindingConnectionsVC.m */; };
+		D502509B18512AFA00E65912 /* RequestsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D502509A18512AFA00E65912 /* RequestsCDTVC.m */; };
+		D502509E18512BD600E65912 /* OpenRequestsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D502509D18512BD600E65912 /* OpenRequestsCDTVC.m */; };
+		D50250A118512BFC00E65912 /* HistoryRequestsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A018512BFC00E65912 /* HistoryRequestsCDTVC.m */; };
+		D50250A418512E6C00E65912 /* Request+Relinked.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A318512E6C00E65912 /* Request+Relinked.m */; };
+		D50250A71851324C00E65912 /* RelinkedStanfordServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */; };
+		D50250AA1851392B00E65912 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A91851392B00E65912 /* Request.m */; };
+		D50250B018516DE000E65912 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250AF18516DE000E65912 /* SettingsViewController.m */; };
+		D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250B21851928900E65912 /* MakeRequestViewController.m */; };
+		D50250B51851ABBD00E65912 /* OpenRequestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50250B41851ABBD00E65912 /* OpenRequestTableCell.xib */; };
+		D50250BB1851B13C00E65912 /* OpenRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250BA1851B13C00E65912 /* OpenRequestTableViewCell.m */; };
+		D5544B44184ED63C00DDB685 /* LinkedInFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */; };
 		D5B2AC9C184D96D70052BF33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9B184D96D70052BF33 /* Foundation.framework */; };
 		D5B2AC9E184D96D70052BF33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9D184D96D70052BF33 /* CoreGraphics.framework */; };
 		D5B2ACA0184D96D70052BF33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9F184D96D70052BF33 /* UIKit.framework */; };
@@ -15,13 +34,32 @@
 		D5B2ACAC184D96D70052BF33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACAB184D96D70052BF33 /* AppDelegate.m */; };
 		D5B2ACAF184D96D70052BF33 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B2ACAD184D96D70052BF33 /* Main_iPhone.storyboard */; };
 		D5B2ACB2184D96D70052BF33 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B2ACB0184D96D70052BF33 /* Main_iPad.storyboard */; };
-		D5B2ACB5184D96D70052BF33 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACB4184D96D70052BF33 /* ViewController.m */; };
 		D5B2ACB7184D96D70052BF33 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B2ACB6184D96D70052BF33 /* Images.xcassets */; };
 		D5B2ACBE184D96D70052BF33 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2ACBD184D96D70052BF33 /* XCTest.framework */; };
 		D5B2ACBF184D96D70052BF33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9B184D96D70052BF33 /* Foundation.framework */; };
 		D5B2ACC0184D96D70052BF33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9F184D96D70052BF33 /* UIKit.framework */; };
 		D5B2ACC8184D96D70052BF33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5B2ACC6184D96D70052BF33 /* InfoPlist.strings */; };
 		D5B2ACCA184D96D70052BF33 /* RelinkedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACC9184D96D70052BF33 /* RelinkedTests.m */; };
+		D5B2ACDB184D985B0052BF33 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACDA184D985B0052BF33 /* LoginViewController.m */; };
+		D5B2ACE5184D98E60052BF33 /* LIALinkedInApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACDE184D98E60052BF33 /* LIALinkedInApplication.m */; };
+		D5B2ACE6184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACE0184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m */; };
+		D5B2ACE7184D98E60052BF33 /* LIALinkedInHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACE2184D98E60052BF33 /* LIALinkedInHttpClient.m */; };
+		D5B2ACE8184D98E60052BF33 /* NSString+LIAEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACE4184D98E60052BF33 /* NSString+LIAEncode.m */; };
+		D5B2ACFD184D98EF0052BF33 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACEB184D98EF0052BF33 /* AFHTTPRequestOperation.m */; };
+		D5B2ACFE184D98EF0052BF33 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACED184D98EF0052BF33 /* AFHTTPRequestOperationManager.m */; };
+		D5B2ACFF184D98EF0052BF33 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACEF184D98EF0052BF33 /* AFHTTPSessionManager.m */; };
+		D5B2AD00184D98EF0052BF33 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACF2184D98EF0052BF33 /* AFNetworkReachabilityManager.m */; };
+		D5B2AD01184D98EF0052BF33 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACF4184D98EF0052BF33 /* AFSecurityPolicy.m */; };
+		D5B2AD02184D98EF0052BF33 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACF6184D98EF0052BF33 /* AFURLConnectionOperation.m */; };
+		D5B2AD03184D98EF0052BF33 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACF8184D98EF0052BF33 /* AFURLRequestSerialization.m */; };
+		D5B2AD04184D98EF0052BF33 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACFA184D98EF0052BF33 /* AFURLResponseSerialization.m */; };
+		D5B2AD05184D98EF0052BF33 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACFC184D98EF0052BF33 /* AFURLSessionManager.m */; };
+		D5B2AD08184DA8850052BF33 /* ContactMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD07184DA8850052BF33 /* ContactMethodViewController.m */; };
+		D5B2AD0C184DBD460052BF33 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD0B184DBD460052BF33 /* CoreDataTableViewController.m */; };
+		D5B2AD0F184DBD870052BF33 /* IndustryCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */; };
+		D5B2AD15184DC31B0052BF33 /* IndustryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD14184DC31B0052BF33 /* IndustryTVC.m */; };
+		D5B2AD18184DCF4F0052BF33 /* IndustryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */; };
+		D5B2AD1B184DD6F30052BF33 /* Relinked.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +73,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5025075184EF7D500E65912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D5025076184EF7D500E65912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D502507B184EF7FB00E65912 /* User+LinkedIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+LinkedIn.h"; sourceTree = "<group>"; };
+		D502507C184EF7FB00E65912 /* User+LinkedIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+LinkedIn.m"; sourceTree = "<group>"; };
+		D502507E184EFF3F00E65912 /* LinkedInDatabaseAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedInDatabaseAvailability.h; sourceTree = "<group>"; };
+		D502507F184F29C700E65912 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		D5025080184F29C700E65912 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		D5025086185019FF00E65912 /* RelinkedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelinkedUserDefaults.h; sourceTree = "<group>"; };
+		D5025087185019FF00E65912 /* RelinkedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelinkedUserDefaults.m; sourceTree = "<group>"; };
+		D502508C18504C8600E65912 /* SuggestionsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsCDTVC.h; sourceTree = "<group>"; };
+		D502508D18504C8600E65912 /* SuggestionsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionsCDTVC.m; sourceTree = "<group>"; };
+		D502508F1850607400E65912 /* CurrentUserNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUserNavigationController.h; sourceTree = "<group>"; };
+		D50250901850607400E65912 /* CurrentUserNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUserNavigationController.m; sourceTree = "<group>"; };
+		D50250921850679C00E65912 /* CurrentUserCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUserCDTVC.h; sourceTree = "<group>"; };
+		D50250931850679C00E65912 /* CurrentUserCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUserCDTVC.m; sourceTree = "<group>"; };
+		D502509518512A3C00E65912 /* FindingConnectionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindingConnectionsVC.h; sourceTree = "<group>"; };
+		D502509618512A3C00E65912 /* FindingConnectionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindingConnectionsVC.m; sourceTree = "<group>"; };
+		D502509918512AFA00E65912 /* RequestsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsCDTVC.h; sourceTree = "<group>"; };
+		D502509A18512AFA00E65912 /* RequestsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsCDTVC.m; sourceTree = "<group>"; };
+		D502509C18512BD600E65912 /* OpenRequestsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenRequestsCDTVC.h; sourceTree = "<group>"; };
+		D502509D18512BD600E65912 /* OpenRequestsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenRequestsCDTVC.m; sourceTree = "<group>"; };
+		D502509F18512BFC00E65912 /* HistoryRequestsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryRequestsCDTVC.h; sourceTree = "<group>"; };
+		D50250A018512BFC00E65912 /* HistoryRequestsCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryRequestsCDTVC.m; sourceTree = "<group>"; };
+		D50250A218512E6C00E65912 /* Request+Relinked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Request+Relinked.h"; sourceTree = "<group>"; };
+		D50250A318512E6C00E65912 /* Request+Relinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Request+Relinked.m"; sourceTree = "<group>"; };
+		D50250A51851324C00E65912 /* RelinkedStanfordServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelinkedStanfordServerRequest.h; sourceTree = "<group>"; };
+		D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelinkedStanfordServerRequest.m; sourceTree = "<group>"; };
+		D50250A81851392B00E65912 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		D50250A91851392B00E65912 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		D50250AE18516DE000E65912 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D50250AF18516DE000E65912 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		D50250B11851928900E65912 /* MakeRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeRequestViewController.h; sourceTree = "<group>"; };
+		D50250B21851928900E65912 /* MakeRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeRequestViewController.m; sourceTree = "<group>"; };
+		D50250B41851ABBD00E65912 /* OpenRequestTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenRequestTableCell.xib; sourceTree = "<group>"; };
+		D50250B91851B13C00E65912 /* OpenRequestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenRequestTableViewCell.h; sourceTree = "<group>"; };
+		D50250BA1851B13C00E65912 /* OpenRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenRequestTableViewCell.m; sourceTree = "<group>"; };
+		D5544B42184ED63C00DDB685 /* LinkedInFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedInFetcher.h; sourceTree = "<group>"; };
+		D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedInFetcher.m; sourceTree = "<group>"; };
 		D5B2AC98184D96D70052BF33 /* Relinked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relinked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B2AC9B184D96D70052BF33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D5B2AC9D184D96D70052BF33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -47,14 +123,52 @@
 		D5B2ACAB184D96D70052BF33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D5B2ACAE184D96D70052BF33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		D5B2ACB1184D96D70052BF33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		D5B2ACB3184D96D70052BF33 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D5B2ACB4184D96D70052BF33 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D5B2ACB6184D96D70052BF33 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D5B2ACBC184D96D70052BF33 /* RelinkedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RelinkedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B2ACBD184D96D70052BF33 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D5B2ACC5184D96D70052BF33 /* RelinkedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RelinkedTests-Info.plist"; sourceTree = "<group>"; };
 		D5B2ACC7184D96D70052BF33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D5B2ACC9184D96D70052BF33 /* RelinkedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RelinkedTests.m; sourceTree = "<group>"; };
+		D5B2ACD9184D985B0052BF33 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D5B2ACDA184D985B0052BF33 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D5B2ACDD184D98E60052BF33 /* LIALinkedInApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIALinkedInApplication.h; sourceTree = "<group>"; };
+		D5B2ACDE184D98E60052BF33 /* LIALinkedInApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIALinkedInApplication.m; sourceTree = "<group>"; };
+		D5B2ACDF184D98E60052BF33 /* LIALinkedInAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIALinkedInAuthorizationViewController.h; sourceTree = "<group>"; };
+		D5B2ACE0184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIALinkedInAuthorizationViewController.m; sourceTree = "<group>"; };
+		D5B2ACE1184D98E60052BF33 /* LIALinkedInHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LIALinkedInHttpClient.h; sourceTree = "<group>"; };
+		D5B2ACE2184D98E60052BF33 /* LIALinkedInHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LIALinkedInHttpClient.m; sourceTree = "<group>"; };
+		D5B2ACE3184D98E60052BF33 /* NSString+LIAEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LIAEncode.h"; sourceTree = "<group>"; };
+		D5B2ACE4184D98E60052BF33 /* NSString+LIAEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LIAEncode.m"; sourceTree = "<group>"; };
+		D5B2ACEA184D98EF0052BF33 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		D5B2ACEB184D98EF0052BF33 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		D5B2ACEC184D98EF0052BF33 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		D5B2ACED184D98EF0052BF33 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		D5B2ACEE184D98EF0052BF33 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		D5B2ACEF184D98EF0052BF33 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		D5B2ACF0184D98EF0052BF33 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		D5B2ACF1184D98EF0052BF33 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		D5B2ACF2184D98EF0052BF33 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		D5B2ACF3184D98EF0052BF33 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		D5B2ACF4184D98EF0052BF33 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		D5B2ACF5184D98EF0052BF33 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		D5B2ACF6184D98EF0052BF33 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		D5B2ACF7184D98EF0052BF33 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		D5B2ACF8184D98EF0052BF33 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		D5B2ACF9184D98EF0052BF33 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		D5B2ACFA184D98EF0052BF33 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		D5B2ACFB184D98EF0052BF33 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		D5B2ACFC184D98EF0052BF33 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		D5B2AD06184DA8850052BF33 /* ContactMethodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactMethodViewController.h; sourceTree = "<group>"; };
+		D5B2AD07184DA8850052BF33 /* ContactMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMethodViewController.m; sourceTree = "<group>"; };
+		D5B2AD0A184DBD460052BF33 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		D5B2AD0B184DBD460052BF33 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		D5B2AD0D184DBD870052BF33 /* IndustryCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryCDTVC.h; sourceTree = "<group>"; };
+		D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryCDTVC.m; sourceTree = "<group>"; };
+		D5B2AD13184DC31B0052BF33 /* IndustryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryTVC.h; sourceTree = "<group>"; };
+		D5B2AD14184DC31B0052BF33 /* IndustryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryTVC.m; sourceTree = "<group>"; };
+		D5B2AD16184DCF4F0052BF33 /* IndustryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryTableViewCell.h; sourceTree = "<group>"; };
+		D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryTableViewCell.m; sourceTree = "<group>"; };
+		D5B2AD1A184DD6F30052BF33 /* Relinked.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Relinked.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +195,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D5025082184F29DF00E65912 /* ToDelete */ = {
+			isa = PBXGroup;
+			children = (
+				D502507F184F29C700E65912 /* SearchViewController.h */,
+				D5025080184F29C700E65912 /* SearchViewController.m */,
+				D5B2AD0D184DBD870052BF33 /* IndustryCDTVC.h */,
+				D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */,
+				D5B2AD16184DCF4F0052BF33 /* IndustryTableViewCell.h */,
+				D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */,
+			);
+			name = ToDelete;
+			sourceTree = "<group>";
+		};
+		D502509818512AC000E65912 /* RequestsVC */ = {
+			isa = PBXGroup;
+			children = (
+				D502509918512AFA00E65912 /* RequestsCDTVC.h */,
+				D502509A18512AFA00E65912 /* RequestsCDTVC.m */,
+				D502509C18512BD600E65912 /* OpenRequestsCDTVC.h */,
+				D502509D18512BD600E65912 /* OpenRequestsCDTVC.m */,
+				D502509F18512BFC00E65912 /* HistoryRequestsCDTVC.h */,
+				D50250A018512BFC00E65912 /* HistoryRequestsCDTVC.m */,
+			);
+			name = RequestsVC;
+			sourceTree = "<group>";
+		};
+		D50250AC18516BF800E65912 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D502508F1850607400E65912 /* CurrentUserNavigationController.h */,
+				D50250901850607400E65912 /* CurrentUserNavigationController.m */,
+				D50250921850679C00E65912 /* CurrentUserCDTVC.h */,
+				D50250931850679C00E65912 /* CurrentUserCDTVC.m */,
+				D502508C18504C8600E65912 /* SuggestionsCDTVC.h */,
+				D502508D18504C8600E65912 /* SuggestionsCDTVC.m */,
+				D502509818512AC000E65912 /* RequestsVC */,
+				D50250B11851928900E65912 /* MakeRequestViewController.h */,
+				D50250B21851928900E65912 /* MakeRequestViewController.m */,
+				D50250B91851B13C00E65912 /* OpenRequestTableViewCell.h */,
+				D50250BA1851B13C00E65912 /* OpenRequestTableViewCell.m */,
+			);
+			name = MainTabBar;
+			sourceTree = "<group>";
+		};
+		D50250AD18516C1700E65912 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D5025086185019FF00E65912 /* RelinkedUserDefaults.h */,
+				D5025087185019FF00E65912 /* RelinkedUserDefaults.m */,
+				D5544B42184ED63C00DDB685 /* LinkedInFetcher.h */,
+				D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		D5B2AC8F184D96D60052BF33 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +272,8 @@
 		D5B2AC9A184D96D70052BF33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D5B2ACE9184D98EF0052BF33 /* AFNetworking */,
+				D5B2ACDC184D98E60052BF33 /* IOSLinkedInAPI */,
 				D5B2AC9B184D96D70052BF33 /* Foundation.framework */,
 				D5B2AC9D184D96D70052BF33 /* CoreGraphics.framework */,
 				D5B2AC9F184D96D70052BF33 /* UIKit.framework */,
@@ -116,11 +287,10 @@
 			children = (
 				D5B2ACAA184D96D70052BF33 /* AppDelegate.h */,
 				D5B2ACAB184D96D70052BF33 /* AppDelegate.m */,
-				D5B2ACAD184D96D70052BF33 /* Main_iPhone.storyboard */,
-				D5B2ACB0184D96D70052BF33 /* Main_iPad.storyboard */,
-				D5B2ACB3184D96D70052BF33 /* ViewController.h */,
-				D5B2ACB4184D96D70052BF33 /* ViewController.m */,
-				D5B2ACB6184D96D70052BF33 /* Images.xcassets */,
+				D502507E184EFF3F00E65912 /* LinkedInDatabaseAvailability.h */,
+				D5B2ACD4184D97500052BF33 /* Model */,
+				D5B2ACD3184D97430052BF33 /* View */,
+				D5B2ACD5184D97580052BF33 /* Controller */,
 				D5B2ACA2184D96D70052BF33 /* Supporting Files */,
 			);
 			path = Relinked;
@@ -153,6 +323,106 @@
 				D5B2ACC6184D96D70052BF33 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5B2ACD3184D97430052BF33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2ACAD184D96D70052BF33 /* Main_iPhone.storyboard */,
+				D5B2ACB0184D96D70052BF33 /* Main_iPad.storyboard */,
+				D50250B41851ABBD00E65912 /* OpenRequestTableCell.xib */,
+				D5B2ACB6184D96D70052BF33 /* Images.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D5B2ACD4184D97500052BF33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */,
+				D50250A81851392B00E65912 /* Request.h */,
+				D50250A91851392B00E65912 /* Request.m */,
+				D5025075184EF7D500E65912 /* User.h */,
+				D5025076184EF7D500E65912 /* User.m */,
+				D502507B184EF7FB00E65912 /* User+LinkedIn.h */,
+				D502507C184EF7FB00E65912 /* User+LinkedIn.m */,
+				D50250A218512E6C00E65912 /* Request+Relinked.h */,
+				D50250A318512E6C00E65912 /* Request+Relinked.m */,
+				D50250A51851324C00E65912 /* RelinkedStanfordServerRequest.h */,
+				D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D5B2ACD5184D97580052BF33 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2AD09184DBD460052BF33 /* CoreDataTableViewController */,
+				D50250AD18516C1700E65912 /* Helpers */,
+				D5025082184F29DF00E65912 /* ToDelete */,
+				D5B2ACD9184D985B0052BF33 /* LoginViewController.h */,
+				D5B2ACDA184D985B0052BF33 /* LoginViewController.m */,
+				D5B2AD06184DA8850052BF33 /* ContactMethodViewController.h */,
+				D5B2AD07184DA8850052BF33 /* ContactMethodViewController.m */,
+				D5B2AD13184DC31B0052BF33 /* IndustryTVC.h */,
+				D5B2AD14184DC31B0052BF33 /* IndustryTVC.m */,
+				D502509518512A3C00E65912 /* FindingConnectionsVC.h */,
+				D502509618512A3C00E65912 /* FindingConnectionsVC.m */,
+				D50250AC18516BF800E65912 /* MainTabBar */,
+				D50250AE18516DE000E65912 /* SettingsViewController.h */,
+				D50250AF18516DE000E65912 /* SettingsViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D5B2ACDC184D98E60052BF33 /* IOSLinkedInAPI */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2ACDD184D98E60052BF33 /* LIALinkedInApplication.h */,
+				D5B2ACDE184D98E60052BF33 /* LIALinkedInApplication.m */,
+				D5B2ACDF184D98E60052BF33 /* LIALinkedInAuthorizationViewController.h */,
+				D5B2ACE0184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m */,
+				D5B2ACE1184D98E60052BF33 /* LIALinkedInHttpClient.h */,
+				D5B2ACE2184D98E60052BF33 /* LIALinkedInHttpClient.m */,
+				D5B2ACE3184D98E60052BF33 /* NSString+LIAEncode.h */,
+				D5B2ACE4184D98E60052BF33 /* NSString+LIAEncode.m */,
+			);
+			path = IOSLinkedInAPI;
+			sourceTree = "<group>";
+		};
+		D5B2ACE9184D98EF0052BF33 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2ACEA184D98EF0052BF33 /* AFHTTPRequestOperation.h */,
+				D5B2ACEB184D98EF0052BF33 /* AFHTTPRequestOperation.m */,
+				D5B2ACEC184D98EF0052BF33 /* AFHTTPRequestOperationManager.h */,
+				D5B2ACED184D98EF0052BF33 /* AFHTTPRequestOperationManager.m */,
+				D5B2ACEE184D98EF0052BF33 /* AFHTTPSessionManager.h */,
+				D5B2ACEF184D98EF0052BF33 /* AFHTTPSessionManager.m */,
+				D5B2ACF0184D98EF0052BF33 /* AFNetworking.h */,
+				D5B2ACF1184D98EF0052BF33 /* AFNetworkReachabilityManager.h */,
+				D5B2ACF2184D98EF0052BF33 /* AFNetworkReachabilityManager.m */,
+				D5B2ACF3184D98EF0052BF33 /* AFSecurityPolicy.h */,
+				D5B2ACF4184D98EF0052BF33 /* AFSecurityPolicy.m */,
+				D5B2ACF5184D98EF0052BF33 /* AFURLConnectionOperation.h */,
+				D5B2ACF6184D98EF0052BF33 /* AFURLConnectionOperation.m */,
+				D5B2ACF7184D98EF0052BF33 /* AFURLRequestSerialization.h */,
+				D5B2ACF8184D98EF0052BF33 /* AFURLRequestSerialization.m */,
+				D5B2ACF9184D98EF0052BF33 /* AFURLResponseSerialization.h */,
+				D5B2ACFA184D98EF0052BF33 /* AFURLResponseSerialization.m */,
+				D5B2ACFB184D98EF0052BF33 /* AFURLSessionManager.h */,
+				D5B2ACFC184D98EF0052BF33 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		D5B2AD09184DBD460052BF33 /* CoreDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D5B2AD0A184DBD460052BF33 /* CoreDataTableViewController.h */,
+				D5B2AD0B184DBD460052BF33 /* CoreDataTableViewController.m */,
+			);
+			path = CoreDataTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5B2ACB2184D96D70052BF33 /* Main_iPad.storyboard in Resources */,
+				D50250B51851ABBD00E65912 /* OpenRequestTableCell.xib in Resources */,
 				D5B2ACB7184D96D70052BF33 /* Images.xcassets in Resources */,
 				D5B2ACAF184D96D70052BF33 /* Main_iPhone.storyboard in Resources */,
 				D5B2ACA6184D96D70052BF33 /* InfoPlist.strings in Resources */,
@@ -253,9 +524,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5B2ACB5184D96D70052BF33 /* ViewController.m in Sources */,
+				D502508E18504C8600E65912 /* SuggestionsCDTVC.m in Sources */,
+				D5B2AD02184D98EF0052BF33 /* AFURLConnectionOperation.m in Sources */,
+				D50250911850607400E65912 /* CurrentUserNavigationController.m in Sources */,
+				D50250BB1851B13C00E65912 /* OpenRequestTableViewCell.m in Sources */,
+				D50250A71851324C00E65912 /* RelinkedStanfordServerRequest.m in Sources */,
 				D5B2ACAC184D96D70052BF33 /* AppDelegate.m in Sources */,
+				D5B2AD0C184DBD460052BF33 /* CoreDataTableViewController.m in Sources */,
+				D5B2AD0F184DBD870052BF33 /* IndustryCDTVC.m in Sources */,
+				D502509B18512AFA00E65912 /* RequestsCDTVC.m in Sources */,
+				D5025081184F29C700E65912 /* SearchViewController.m in Sources */,
+				D50250AA1851392B00E65912 /* Request.m in Sources */,
+				D5B2AD08184DA8850052BF33 /* ContactMethodViewController.m in Sources */,
+				D50250B018516DE000E65912 /* SettingsViewController.m in Sources */,
 				D5B2ACA8184D96D70052BF33 /* main.m in Sources */,
+				D5B2ACE8184D98E60052BF33 /* NSString+LIAEncode.m in Sources */,
+				D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */,
+				D50250A418512E6C00E65912 /* Request+Relinked.m in Sources */,
+				D5B2AD18184DCF4F0052BF33 /* IndustryTableViewCell.m in Sources */,
+				D5B2AD04184D98EF0052BF33 /* AFURLResponseSerialization.m in Sources */,
+				D502509718512A3C00E65912 /* FindingConnectionsVC.m in Sources */,
+				D50250941850679C00E65912 /* CurrentUserCDTVC.m in Sources */,
+				D5B2AD1B184DD6F30052BF33 /* Relinked.xcdatamodeld in Sources */,
+				D5544B44184ED63C00DDB685 /* LinkedInFetcher.m in Sources */,
+				D5B2ACDB184D985B0052BF33 /* LoginViewController.m in Sources */,
+				D5B2AD03184D98EF0052BF33 /* AFURLRequestSerialization.m in Sources */,
+				D5025088185019FF00E65912 /* RelinkedUserDefaults.m in Sources */,
+				D50250A118512BFC00E65912 /* HistoryRequestsCDTVC.m in Sources */,
+				D5B2AD01184D98EF0052BF33 /* AFSecurityPolicy.m in Sources */,
+				D5B2ACFD184D98EF0052BF33 /* AFHTTPRequestOperation.m in Sources */,
+				D5B2AD05184D98EF0052BF33 /* AFURLSessionManager.m in Sources */,
+				D5B2ACE5184D98E60052BF33 /* LIALinkedInApplication.m in Sources */,
+				D5025077184EF7D500E65912 /* User.m in Sources */,
+				D502509E18512BD600E65912 /* OpenRequestsCDTVC.m in Sources */,
+				D5B2ACE6184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m in Sources */,
+				D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */,
+				D5B2ACFF184D98EF0052BF33 /* AFHTTPSessionManager.m in Sources */,
+				D5B2ACE7184D98E60052BF33 /* LIALinkedInHttpClient.m in Sources */,
+				D5B2AD00184D98EF0052BF33 /* AFNetworkReachabilityManager.m in Sources */,
+				D5B2ACFE184D98EF0052BF33 /* AFHTTPRequestOperationManager.m in Sources */,
+				D5B2AD15184DC31B0052BF33 /* IndustryTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +782,7 @@
 				D5B2ACCF184D96D70052BF33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5B2ACD0184D96D70052BF33 /* Build configuration list for PBXNativeTarget "RelinkedTests" */ = {
 			isa = XCConfigurationList;
@@ -482,8 +791,22 @@
 				D5B2ACD2184D96D70052BF33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D5B2AD1A184DD6F30052BF33 /* Relinked.xcdatamodel */,
+			);
+			currentVersion = D5B2AD1A184DD6F30052BF33 /* Relinked.xcdatamodel */;
+			path = Relinked.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D5B2AC90184D96D60052BF33 /* Project object */;
 }
