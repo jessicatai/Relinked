@@ -1,13 +1,13 @@
 //
-//  ViewController.h
+//  IndustryCDTVC.h
 //  Relinked
 //
 //  Created by Jessica Tai on 12/2/13.
 //  Copyright (c) 2013 CS193P. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface ViewController : UIViewController
+@interface IndustryCDTVC : CoreDataTableViewController
 
 @end
