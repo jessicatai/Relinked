@@ -23,21 +23,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier;
-    UITableViewCell *cell;
+    CustomTableViewCell *cell;
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
     User *connection = [request.toID isEqualToString:self.currentUser.userID] ? [User getUserWithID:request.fromID inManagedObjectContext:self.currentUser.managedObjectContext] : [User getUserWithID:request.toID inManagedObjectContext:self.currentUser.managedObjectContext];
     
-    if ([request.toID isEqualToString:self.currentUser.userID] && ![request.status isEqualToString:ACCEPT_STATUS]) { // request sent to current user
+    if ([request.toID isEqualToString:self.currentUser.userID] && [request.status isEqualToString:OPEN_STATUS]) { // request sent to current user
         cellIdentifier = @"Open Request Cell";
         cell = (OpenRequestTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        OpenRequestTableViewCell *openReqCell = (OpenRequestTableViewCell *)cell;
-        openReqCell.cdtvc = self; // give cdtvc for accept/ignore buttons
-        cell = openReqCell;
+//        OpenRequestTableViewCell *openReqCell = (OpenRequestTableViewCell *)cell;
+//        openReqCell.cdtvc = self; // give cdtvc for accept/ignore buttons
+//        cell = openReqCell;
     } else { // current user sent the request
         cellIdentifier = @"Request Cell";
         cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
-    
+    cell.cdtvc = self;
     
     
     NSString *connectionName = [NSString stringWithFormat:@"%@ %@", connection.firstName, connection.lastName];
@@ -75,10 +75,15 @@
     return nil;
 }
 
--(void) updateRequestwitIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status{
+-(void) updateRequestWithIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status{
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *date = [RelinkedStanfordServerRequest convertDateToString:request.sentDate];
     [Request addNewRequestFromUserID:request.fromUser.userID toUserID:request.toUser.userID withAction:action withStatus:status withDate:date inManagedObjectContext:request.managedObjectContext];
+}
+
+-(void) deleteRequestWithIndexPath:(NSIndexPath *)indexPath {
+    Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [Request deleteRequest:request];
 }
 
 @end

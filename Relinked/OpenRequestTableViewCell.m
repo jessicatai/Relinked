@@ -23,7 +23,7 @@
     NSLog(@"clicked accept");
     // update request status to accept
     NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
-    [self.cdtvc updateRequestwitIndexPath:indexPath forAction:@"update" forStatus:@"accept"];
+    [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"accept"];
     
 }
 
@@ -31,7 +31,7 @@
     NSLog(@"clicked ignore");
     // update request status to ignore
     NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
-    [self.cdtvc updateRequestwitIndexPath:indexPath forAction:@"update" forStatus:@"ignore"];
+    [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"ignore"];
 }
 
 

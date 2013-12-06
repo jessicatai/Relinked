@@ -94,6 +94,16 @@
     return nil;
 }
 
++ (void) deleteRequest:(Request *)request {
+    // remove from Stanford server
+    NSString *tableName = @"Request";
+    
+    NSString *url= [NSString stringWithFormat:@"%@?tableName=%@&fromID=%@&toID=%@&sentDate=%@&action=delete", QUICKNDIRTY_REQUEST_URL_BEGINNING, tableName, request.fromUser.userID, request.toUser.userID, [RelinkedStanfordServerRequest convertDateToString:request.sentDate]];
+    [RelinkedStanfordServerRequest executeQuickNDirtyQuery:url];
+    
+    [request.managedObjectContext deleteObject:request]; // remove from core data
+}
+
 
 + (void) deleteAllRequestsInContext:(NSManagedObjectContext *) context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Request"];

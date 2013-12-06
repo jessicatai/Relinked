@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 CS193P. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "RequestsCDTVC.h"
+//#import <UIKit/UIKit.h>
+//#import "RequestsCDTVC.h"
+#import "CustomTableViewCell.h"
 
-@interface OpenRequestTableViewCell : UITableViewCell
+@interface OpenRequestTableViewCell : CustomTableViewCell//UITableViewCell
 
-@property (nonatomic, weak) RequestsCDTVC *cdtvc;
+//@property (nonatomic, weak) RequestsCDTVC *cdtvc;
 
 @end

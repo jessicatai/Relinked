@@ -15,6 +15,7 @@
 + (void) addAllRequestsInvolvingUser:(User *) currentUser;
 + (NSArray *) allRequestsInvolvingUser:(User *) currentUser withStatus:(NSString *)status;
 + (void) deleteAllRequestsInContext:(NSManagedObjectContext *) context;
++ (void) deleteRequest:(Request *)request;
 + (void)addNewRequestFromUserID:(NSString *)fromID
                        toUserID:(NSString *)toID
                      withAction:(NSString *) action
