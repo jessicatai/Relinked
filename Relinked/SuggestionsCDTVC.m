@@ -11,6 +11,8 @@
 #import "Request+Relinked.h"
 #import "InterestedIndustry+Create.h"
 
+#include <stdlib.h>
+
 @interface SuggestionsCDTVC ()
 
 @end
@@ -41,9 +43,8 @@
         //[self.currentUser.interestedIndustries componentsSeparatedByString:RELINKED_DELIMITER];
         // no industries selected = no results (todo: make it all industries)
         request.predicate = [NSPredicate predicateWithFormat:@"industry IN %@ and thumbnailURL != nil ", interestedIndustries];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"userID"
-                                                                  ascending:NO
-                                                                   selector:@selector(localizedStandardCompare:)]];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"random"
+                                                                  ascending:YES]];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:context
@@ -63,6 +64,7 @@
     User *cxn = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",cxn.firstName, cxn.lastName];
     cell.detailTextLabel.text = cxn.headline;
+    cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
     
     cell.imageView.image = [UIImage imageWithData:cxn.thumbnailData];
     // fetch thumbnail data, only if there is a thumbnail to fetch, if have not requested before

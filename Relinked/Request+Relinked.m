@@ -23,12 +23,17 @@
     NSString *url = [NSString stringWithFormat:@"%@?tableName=Request&userID=%@", QUICKNDIRTY_SELECT_URL_BEGINNING, currentUser.userID];
     
     NSDictionary *results = [RelinkedStanfordServerRequest jsonResponseForURL:url];
-    NSArray *requests = [results valueForKey:QUICKNDIRTY_RETURNED_DATA_KEY];
-    
-    for (NSDictionary *requestInfo in requests) {
-        [self requestWithInfo:requestInfo inManagedObjectContext:currentUser.managedObjectContext];
+    if ([results valueForKey:QUICKNDIRTY_RETURNED_DATA_KEY] != nil) {
+        NSArray *requests = [results valueForKey:QUICKNDIRTY_RETURNED_DATA_KEY];
+        
+        for (NSDictionary *requestInfo in requests) {
+            [self requestWithInfo:requestInfo inManagedObjectContext:currentUser.managedObjectContext];
+        }
+        NSLog(@"added %d requests", [requests count]);
+    } else {
+        NSLog(@"Error retrieving data from Stanford server...");
     }
-    NSLog(@"added %d requests", [requests count]);
+    
 }
 
 + (Request *)requestWithInfo:(NSDictionary *)requestInfo

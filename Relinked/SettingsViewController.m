@@ -32,8 +32,7 @@
                                                       NSLog(@"Settngs awoke from nib w context");
                                                   }];
 }
-
-- (IBAction)logout:(UIBarButtonItem *)sender {
+- (IBAction)logout:(UIButton *)sender {
     [RelinkedUserDefaults logoutCurrentUser];
     [RelinkedUserDefaults deleteSavedAccessToken];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];

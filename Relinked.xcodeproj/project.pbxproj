@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */ = {isa = PBXBuildFile; fileRef = D502507C184EF7FB00E65912 /* User+LinkedIn.m */; };
-		D5025081184F29C700E65912 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025080184F29C700E65912 /* SearchViewController.m */; };
 		D5025088185019FF00E65912 /* RelinkedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025087185019FF00E65912 /* RelinkedUserDefaults.m */; };
 		D502508E18504C8600E65912 /* SuggestionsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D502508D18504C8600E65912 /* SuggestionsCDTVC.m */; };
 		D50250911850607400E65912 /* CurrentUserNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250901850607400E65912 /* CurrentUserNavigationController.m */; };
@@ -30,7 +29,6 @@
 		D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EC1852DDAD00E65912 /* InterestedIndustry.m */; };
 		D50250F01852DDAD00E65912 /* ContactMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EF1852DDAD00E65912 /* ContactMethod.m */; };
 		D50250F31852F00200E65912 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F21852F00200E65912 /* ReminderViewController.m */; };
-		D50250F6185308E700E65912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F5185308E700E65912 /* User.m */; };
 		D50250F918531AE000E65912 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F818531AE000E65912 /* EmailViewController.m */; };
 		D50250FB18531C6600E65912 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50250FA18531C6600E65912 /* MessageUI.framework */; };
 		D5544B44184ED63C00DDB685 /* LinkedInFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */; };
@@ -64,10 +62,9 @@
 		D5B2AD05184D98EF0052BF33 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2ACFC184D98EF0052BF33 /* AFURLSessionManager.m */; };
 		D5B2AD08184DA8850052BF33 /* ContactMethodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD07184DA8850052BF33 /* ContactMethodViewController.m */; };
 		D5B2AD0C184DBD460052BF33 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD0B184DBD460052BF33 /* CoreDataTableViewController.m */; };
-		D5B2AD0F184DBD870052BF33 /* IndustryCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */; };
 		D5B2AD15184DC31B0052BF33 /* IndustryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD14184DC31B0052BF33 /* IndustryTVC.m */; };
-		D5B2AD18184DCF4F0052BF33 /* IndustryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */; };
 		D5B2AD1B184DD6F30052BF33 /* Relinked.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */; };
+		D5B705F818533B5600FFFD15 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B705F718533B5600FFFD15 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +81,6 @@
 		D502507B184EF7FB00E65912 /* User+LinkedIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+LinkedIn.h"; sourceTree = "<group>"; };
 		D502507C184EF7FB00E65912 /* User+LinkedIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+LinkedIn.m"; sourceTree = "<group>"; };
 		D502507E184EFF3F00E65912 /* LinkedInDatabaseAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedInDatabaseAvailability.h; sourceTree = "<group>"; };
-		D502507F184F29C700E65912 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		D5025080184F29C700E65912 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D5025086185019FF00E65912 /* RelinkedUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelinkedUserDefaults.h; sourceTree = "<group>"; };
 		D5025087185019FF00E65912 /* RelinkedUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelinkedUserDefaults.m; sourceTree = "<group>"; };
 		D502508C18504C8600E65912 /* SuggestionsCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionsCDTVC.h; sourceTree = "<group>"; };
@@ -127,8 +122,6 @@
 		D50250EF1852DDAD00E65912 /* ContactMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMethod.m; sourceTree = "<group>"; };
 		D50250F11852F00200E65912 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
 		D50250F21852F00200E65912 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
-		D50250F4185308E700E65912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D50250F5185308E700E65912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D50250F718531AE000E65912 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
 		D50250F818531AE000E65912 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		D50250FA18531C6600E65912 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -185,13 +178,11 @@
 		D5B2AD07184DA8850052BF33 /* ContactMethodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMethodViewController.m; sourceTree = "<group>"; };
 		D5B2AD0A184DBD460052BF33 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		D5B2AD0B184DBD460052BF33 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
-		D5B2AD0D184DBD870052BF33 /* IndustryCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryCDTVC.h; sourceTree = "<group>"; };
-		D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryCDTVC.m; sourceTree = "<group>"; };
 		D5B2AD13184DC31B0052BF33 /* IndustryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryTVC.h; sourceTree = "<group>"; };
 		D5B2AD14184DC31B0052BF33 /* IndustryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryTVC.m; sourceTree = "<group>"; };
-		D5B2AD16184DCF4F0052BF33 /* IndustryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndustryTableViewCell.h; sourceTree = "<group>"; };
-		D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndustryTableViewCell.m; sourceTree = "<group>"; };
 		D5B2AD1A184DD6F30052BF33 /* Relinked.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Relinked.xcdatamodel; sourceTree = "<group>"; };
+		D5B705F618533B5600FFFD15 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D5B705F718533B5600FFFD15 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,19 +210,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D5025082184F29DF00E65912 /* ToDelete */ = {
-			isa = PBXGroup;
-			children = (
-				D502507F184F29C700E65912 /* SearchViewController.h */,
-				D5025080184F29C700E65912 /* SearchViewController.m */,
-				D5B2AD0D184DBD870052BF33 /* IndustryCDTVC.h */,
-				D5B2AD0E184DBD870052BF33 /* IndustryCDTVC.m */,
-				D5B2AD16184DCF4F0052BF33 /* IndustryTableViewCell.h */,
-				D5B2AD17184DCF4F0052BF33 /* IndustryTableViewCell.m */,
-			);
-			name = ToDelete;
-			sourceTree = "<group>";
-		};
 		D502509818512AC000E65912 /* RequestsVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,9 +354,9 @@
 		D5B2ACD4184D97500052BF33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D5B705F618533B5600FFFD15 /* User.h */,
+				D5B705F718533B5600FFFD15 /* User.m */,
 				D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */,
-				D50250F4185308E700E65912 /* User.h */,
-				D50250F5185308E700E65912 /* User.m */,
 				D50250EE1852DDAD00E65912 /* ContactMethod.h */,
 				D50250EF1852DDAD00E65912 /* ContactMethod.m */,
 				D50250EB1852DDAD00E65912 /* InterestedIndustry.h */,
@@ -404,7 +382,6 @@
 			children = (
 				D5B2AD09184DBD460052BF33 /* CoreDataTableViewController */,
 				D50250AD18516C1700E65912 /* Helpers */,
-				D5025082184F29DF00E65912 /* ToDelete */,
 				D5B2ACD9184D985B0052BF33 /* LoginViewController.h */,
 				D5B2ACDA184D985B0052BF33 /* LoginViewController.m */,
 				D5B2AD06184DA8850052BF33 /* ContactMethodViewController.h */,
@@ -579,12 +556,9 @@
 				D50250A71851324C00E65912 /* RelinkedStanfordServerRequest.m in Sources */,
 				D5B2ACAC184D96D70052BF33 /* AppDelegate.m in Sources */,
 				D5B2AD0C184DBD460052BF33 /* CoreDataTableViewController.m in Sources */,
-				D50250F6185308E700E65912 /* User.m in Sources */,
-				D5B2AD0F184DBD870052BF33 /* IndustryCDTVC.m in Sources */,
 				D50250F01852DDAD00E65912 /* ContactMethod.m in Sources */,
 				D50250C31851E73700E65912 /* CustomTableViewCell.m in Sources */,
 				D502509B18512AFA00E65912 /* RequestsCDTVC.m in Sources */,
-				D5025081184F29C700E65912 /* SearchViewController.m in Sources */,
 				D5B2AD08184DA8850052BF33 /* ContactMethodViewController.m in Sources */,
 				D50250E71852DDAC00E65912 /* Request.m in Sources */,
 				D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */,
@@ -594,7 +568,6 @@
 				D5B2ACE8184D98E60052BF33 /* NSString+LIAEncode.m in Sources */,
 				D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */,
 				D50250A418512E6C00E65912 /* Request+Relinked.m in Sources */,
-				D5B2AD18184DCF4F0052BF33 /* IndustryTableViewCell.m in Sources */,
 				D50250C01851E59300E65912 /* SentRequestTableViewCell.m in Sources */,
 				D5B2AD04184D98EF0052BF33 /* AFURLResponseSerialization.m in Sources */,
 				D50250941850679C00E65912 /* CurrentUserCDTVC.m in Sources */,
@@ -603,6 +576,7 @@
 				D5B2ACDB184D985B0052BF33 /* LoginViewController.m in Sources */,
 				D5B2AD03184D98EF0052BF33 /* AFURLRequestSerialization.m in Sources */,
 				D5025088185019FF00E65912 /* RelinkedUserDefaults.m in Sources */,
+				D5B705F818533B5600FFFD15 /* User.m in Sources */,
 				D50250A118512BFC00E65912 /* HistoryRequestsCDTVC.m in Sources */,
 				D5B2AD01184D98EF0052BF33 /* AFSecurityPolicy.m in Sources */,
 				D5B2ACFD184D98EF0052BF33 /* AFHTTPRequestOperation.m in Sources */,

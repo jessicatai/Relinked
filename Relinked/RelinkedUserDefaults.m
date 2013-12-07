@@ -31,14 +31,14 @@
 }
 
 + (void) logoutCurrentUser {
-    if ([self isUserLoggedIn]) {
-        NSLog(@"logging user out");
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:RELINKED_USER_INFO];
-        
-        // wipe out core data for logging out user
-        
-        
+    NSLog(@"logging user out");
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:RELINKED_USER_INFO];
+    if (![self isUserLoggedIn]) {
+        NSLog(@"user succesfully logged out.. ");
     }
+    // wipe out core data for logging out user
+        
+
 }
 
 + (NSDictionary *) getCurrentUserInfo {

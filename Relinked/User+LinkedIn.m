@@ -48,6 +48,7 @@
         user.thumbnailURL = userDictionary[LINKEDIN_THUMBNAIL];
         user.userID = unique;
         user.uid = userDictionary[LINKEDIN_USERID];
+        user.random = [[NSNumber alloc] initWithInt:arc4random()];
         
         // only set current user for connection users, not the just authenticated current user
         if (currentUser != nil) {

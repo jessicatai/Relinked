@@ -43,6 +43,7 @@
     NSString *connectionName = [NSString stringWithFormat:@"%@ %@", connection.firstName, connection.lastName];
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[request.toID isEqualToString:self.currentUser.userID ] ? @"FROM": @"TO", connectionName];
+    cell.textLabel.numberOfLines = 2;
     cell.detailTextLabel.text = [self getDetailedTextForRequest:request];
     
     cell.imageView.image = [UIImage imageWithData:connection.thumbnailData];

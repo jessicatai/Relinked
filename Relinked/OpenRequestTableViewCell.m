@@ -21,6 +21,7 @@
 
 @implementation OpenRequestTableViewCell
 
+
 - (IBAction)acceptRequest:(UIButton *)sender {
     NSLog(@"clicked accept");
     // update request status to accept

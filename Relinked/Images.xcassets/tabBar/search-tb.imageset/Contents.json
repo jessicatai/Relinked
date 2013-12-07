@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "search-tb.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "search-tb.png"
+      "scale" : "2x"
     }
   ],
   "info" : {

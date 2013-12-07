@@ -27,6 +27,7 @@
         <attribute name="other" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="random" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="thumbnailData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,9 +40,9 @@
         <relationship name="sentRequest" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Request" inverseName="fromUser" inverseEntity="Request" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Request" positionX="-117" positionY="189" width="128" height="148"/>
-        <element name="User" positionX="-119" positionY="396" width="128" height="328"/>
-        <element name="InterestedIndustry" positionX="52" positionY="369" width="128" height="73"/>
-        <element name="ContactMethod" positionX="115" positionY="495" width="128" height="73"/>
+        <element name="ContactMethod" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="InterestedIndustry" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Request" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
