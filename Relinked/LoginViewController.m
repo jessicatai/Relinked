@@ -74,6 +74,11 @@
         [self.client getAccessToken:code success:^(NSDictionary *accessTokenData) {
             NSString *accessToken = [accessTokenData objectForKey:@"access_token"];
             [self.client GET:[NSString stringWithFormat:@"https://api.linkedin.com/v1/people/~?oauth2_access_token=%@&format=json", accessToken] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *result) {
+                UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                
+                [self.view addSubview:spinner];
+                spinner.center = self.parentViewController.view.center;
+                [spinner startAnimating];
                 NSLog(@"current user %@", result);
                 
                 User *currentUser = [User userWithInfo:result forCurrentUser:nil inManagedObjectContext:self.managedObjectContext];
@@ -94,7 +99,7 @@
                     
                     // need connection info to set request info
                     [Request addAllRequestsInvolvingUser:self.currentUser]; // get any requests related to user
-                    
+                    [spinner stopAnimating];
                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                     NSLog(@"failed to fetch connections %@", error);
                 }];

@@ -18,6 +18,7 @@
 
 - (void) viewDidLoad {
     [self.tableView registerNib:[UINib nibWithNibName:@"OpenRequestTableCell" bundle:nil] forCellReuseIdentifier:@"Open Request Cell"];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,13 +80,13 @@
 -(void) updateRequestWithIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status{
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+    NSString *date = [RelinkedStanfordServerRequest convertDateToString:request.sentDate];
+    [Request addNewRequestFromUserID:request.fromUser.userID toUserID:request.toUser.userID withAction:action withStatus:status withDate:date inManagedObjectContext:request.managedObjectContext];
+    
     // hack to counter for off-by-one error when getting indexpath from cell :[
     if ([status isEqualToString:@"accept"]) {
         [self prepForEmailForIndexPath:indexPath];
     }
-    
-    NSString *date = [RelinkedStanfordServerRequest convertDateToString:request.sentDate];
-    [Request addNewRequestFromUserID:request.fromUser.userID toUserID:request.toUser.userID withAction:action withStatus:status withDate:date inManagedObjectContext:request.managedObjectContext];
 }
 
 -(void) deleteRequestWithIndexPath:(NSIndexPath *)indexPath {
@@ -109,9 +110,14 @@
     User *fromUser = request.fromUser;
     
     // Email Subject
-    NSString *emailTitle = @"Relinked Request Accepted";
+    NSString *emailTitle = @"Relink Accepted";
     // Email Content
-    NSString *messageBody = [NSString stringWithFormat:@"Hi %@,\n\nSaw your request on Relink and would love to meet up with you! \n\n- %@ %@", fromUser.firstName, self.currentUser.firstName, self.currentUser.lastName];
+    // todo make this string less ugly...
+    NSString *emailMessage = self.currentUser.email ? [NSString stringWithFormat:@"\nEmail: %@", self.currentUser.email]: @"";
+    NSString *phoneMessage = self.currentUser.phone ? [NSString stringWithFormat:@"\nPhone: %@", self.currentUser.phone]: @"";
+    NSString *otherMessage = self.currentUser.other ? [NSString stringWithFormat:@"\nSkype: %@", self.currentUser.other]: @"";
+    
+    NSString *messageBody = [NSString stringWithFormat:@"Hi %@,\n\nSaw your request on Relink and would love to meet up with you! \n\nBest ways to contact me: %@%@%@\n\n- %@ %@", fromUser.firstName, emailMessage, phoneMessage, otherMessage, self.currentUser.firstName, self.currentUser.lastName];
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:fromUser.email];
     
@@ -120,8 +126,6 @@
     [mc setSubject:emailTitle];
     [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
-    
-    mc.title = @"Request Accepted";
     
     // Present mail view controller on screen
     [self presentViewController:mc animated:YES completion:NULL];

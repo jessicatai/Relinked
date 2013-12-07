@@ -11,7 +11,4 @@
 
 @interface SuggestionsCDTVC : CurrentUserCDTVC
 
-//@property (nonatomic, strong) User *currentUser;
-//@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @end

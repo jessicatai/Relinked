@@ -20,6 +20,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UIButton *phoneButton;
 @property (strong, nonatomic) IBOutlet UITextField *otherTextField;
+
+@property (strong, nonatomic) UITextField *activeField;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView; // needed to move up text when keyboard shows up
 @property (strong, nonatomic) IBOutlet UIButton *otherButton;
 @end
 
@@ -37,6 +41,7 @@
     for (UITextField *textField in self.methodTextFields) {
         textField.delegate = self;
     }
+    [self registerForKeyboardNotifications];
     
 }
 
@@ -71,18 +76,15 @@
     [textField becomeFirstResponder];
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.activeField = textField;
+}
+
 - (IBAction)tapButton:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     UIButton *btn = (UIButton *)sender;
-//    if (sender.selected) {
-//        if ([btn.accessibilityLabel isEqualToString:@"email"]) {
-//            [self showAndEditTextField:self.emailTextField];
-//        } else if ([btn.accessibilityLabel isEqualToString:@"phone"]) {
-//            [self showAndEditTextField:self.phoneTextField];
-//        } else {
-//            [self showAndEditTextField:self.otherTextField];
-//        }
-//    }
+
+    // change text field visibility w button select/deselect
     if ([btn.accessibilityLabel isEqualToString:@"email"]) {
         [self shouldShowTextField:self.emailTextField isSelected:sender.selected];
     } else if ([btn.accessibilityLabel isEqualToString:@"phone"]) {
@@ -97,6 +99,7 @@
         [self showAndEditTextField:textField];
     } else {
         textField.alpha = 0;
+        
     }
 }
 
@@ -150,10 +153,56 @@
         IndustryTVC *industryTVC = (IndustryTVC *) segue.destinationViewController;
         industryTVC.currentUser = self.currentUser;
         industryTVC.contactMethods = [self selectedContactMethods];
-        industryTVC.email = self.emailTextField.text;
-        industryTVC.phone = self.phoneTextField.text;
-        industryTVC.other = self.otherTextField.text;
+        industryTVC.email = self.emailButton.selected ? self.emailTextField.text : nil;
+        industryTVC.phone = self.phoneButton.selected ? self.phoneTextField.text : nil;
+        industryTVC.other = self.otherButton.selected ? self.otherTextField.text : nil;
     }
+}
+
+# pragma mark Keyboard
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your app might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbSize.height;
+    if (!CGRectContainsPoint(aRect, self.activeField.frame.origin) ) {
+        [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [UIView beginAnimations:Nil context:NULL];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationDuration:0.75];
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.scrollView.contentInset = contentInsets;
+    self.scrollView.scrollIndicatorInsets = contentInsets;
+    
+    [UIView commitAnimations];
 }
 
 @end

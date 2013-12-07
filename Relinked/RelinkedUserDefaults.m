@@ -22,6 +22,7 @@
         // only one user can be currently logged in at a time per phone
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userInfo];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:RELINKED_USER_INFO];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
 }
@@ -33,6 +34,7 @@
 + (void) logoutCurrentUser {
     NSLog(@"logging user out");
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:RELINKED_USER_INFO];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     if (![self isUserLoggedIn]) {
         NSLog(@"user succesfully logged out.. ");
     }

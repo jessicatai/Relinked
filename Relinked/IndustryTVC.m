@@ -25,6 +25,7 @@ TODO: dynamically populate industries based on cxn info
 @property (strong, nonatomic) NSMutableArray *checkedIndexPaths;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
+
 @end
 
 @implementation IndustryTVC
@@ -33,18 +34,24 @@ static NSString *CellIdentifier = @"Industry Cell";
 
 
 
-- (IBAction)clickDoneButton:(UIBarButtonItem *)sender {    
+- (IBAction)clickDoneButton:(UIBarButtonItem *)sender {
+    // save the email, phone, other info
+    self.currentUser.email = self.email;
+    self.currentUser.phone = self.phone;
+    self.currentUser.other = self.other;
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    [self.view addSubview:spinner];
+    spinner.center = self.parentViewController.view.center;
     // TODO: add popover segue for error message (see url in demo code)
     dispatch_queue_t fetchQ = dispatch_queue_create("relinked fetch suggestions", NULL);
     dispatch_async(fetchQ, ^{
-
+        [spinner startAnimating];
         [User addPreferencesForUser:self.currentUser withContactMethods:self.contactMethods withIndustries:[self selectedIndustries]];
-        
-        // save the email, phone, other info
-        
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"dispatching back to main queue");
+            [spinner stopAnimating];
             [self prepareAndPresentViewController];
         });
     });
@@ -52,21 +59,9 @@ static NSString *CellIdentifier = @"Industry Cell";
 }
 
 - (NSArray *) industries {
-//    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"User"];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.currentUser.managedObjectContext];
-//    
-//    // Required! Unless you set the resultType to NSDictionaryResultType, distinct can't work.
-//    // All objects in the backing store are implicitly distinct, but two dictionaries can be duplicates.
-//    // Since you only want distinct names, only ask for the 'name' property.
-//    fetchRequest.resultType = NSDictionaryResultType;
-//    fetchRequest.propertiesToFetch = [NSArray arrayWithObject:[[entity propertiesByName] objectForKey:@"industry"]];
-//    fetchRequest.returnsDistinctResults = YES;
-//    
-//    // Now it should yield an NSArray of distinct values in dictionaries.
-//    NSArray *dictionaries = [self.currentUser.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-//    NSLog (@"industries: %@",dictionaries);
-//    return dictionaries;
-    return @[@"Accounting", @"Banking", @"Biotechnology", @"Computer & Networking Security", @"Computer Hardware", @"Computer Software", @"Consumer Services", @"Electrical/Electronic Manufacturing", @"Design", @"Financial Services", @"Fine Art"];
+// used TVC just for more breadth... would instead use CDTVC
+// TODO change this to CDTVC and populate industries based on actual contact (so all industries have at least one contact)
+    return @[@"Accounting", @"Banking", @"Biotechnology", @"Computer Hardware", @"Computer Software", @"Consumer Services", @"Electrical/Electronic Manufacturing", @"Design", @"Financial Services", @"Fine Art", @"Human Resources", @"Investment Banking", @"Management Consulting", @"Pharmaceuticals", @"Staffing and Recruiting", @"Telecommunications", @"Wholesale"];
 }
 
 - (NSArray *) selectedIndustries {
@@ -107,7 +102,7 @@ static NSString *CellIdentifier = @"Industry Cell";
 }
 
 - (NSArray *) sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return [self.industryFirstLetters allKeys];
+    return [[self.industryFirstLetters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -127,7 +122,7 @@ static NSString *CellIdentifier = @"Industry Cell";
     NSString* industry = [[self.industryFirstLetters valueForKey:[[[self.industryFirstLetters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     cell.textLabel.text = industry;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = [self.checkedIndexPaths containsObject:indexPath] ? UITableViewCellAccessoryCheckmark :  UITableViewCellSelectionStyleNone;
     return cell;
 }
 
