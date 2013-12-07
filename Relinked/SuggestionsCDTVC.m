@@ -63,8 +63,10 @@
     
     User *cxn = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",cxn.firstName, cxn.lastName];
+    [cell.textLabel setFont:[UIFont systemFontOfSize:15]];
     cell.detailTextLabel.text = cxn.headline;
     cell.detailTextLabel.numberOfLines = 2;
+    [cell.detailTextLabel setFont:[UIFont systemFontOfSize:10]];
     
     cell.imageView.image = [UIImage imageWithData:cxn.thumbnailData];
     // fetch thumbnail data, only if there is a thumbnail to fetch, if have not requested before

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User+LinkedIn.h"
 
 @interface SettingsViewController : UIViewController
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) User *currentUser;
 
 @end

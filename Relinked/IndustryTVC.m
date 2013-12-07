@@ -14,6 +14,9 @@ TODO: dynamically populate industries based on cxn info
 #import "IndustryTVC.h"
 #import "SuggestionsCDTVC.h"
 #import "CurrentUserNavigationController.h"
+#import "SettingsViewController.h"
+
+#import "InterestedIndustry+Create.h"
 
 #import "User+LinkedIn.h"
 #import "InterestedIndustry+Create.h"
@@ -22,7 +25,7 @@ TODO: dynamically populate industries based on cxn info
 @interface IndustryTVC ()
 
 @property (strong, nonatomic) NSMutableDictionary *industryFirstLetters;
-@property (strong, nonatomic) NSMutableArray *checkedIndexPaths;
+@property (strong, nonatomic) NSMutableArray *checkedIndustries;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
@@ -48,7 +51,7 @@ static NSString *CellIdentifier = @"Industry Cell";
     dispatch_queue_t fetchQ = dispatch_queue_create("relinked fetch suggestions", NULL);
     dispatch_async(fetchQ, ^{
         [spinner startAnimating];
-        [User addPreferencesForUser:self.currentUser withContactMethods:self.contactMethods withIndustries:[self selectedIndustries]];
+        [User addPreferencesForUser:self.currentUser withContactMethods:self.contactMethods withIndustries:self.checkedIndustries];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"dispatching back to main queue");
             [spinner stopAnimating];
@@ -61,17 +64,18 @@ static NSString *CellIdentifier = @"Industry Cell";
 - (NSArray *) industries {
 // used TVC just for more breadth... would instead use CDTVC
 // TODO change this to CDTVC and populate industries based on actual contact (so all industries have at least one contact)
-    return @[@"Accounting", @"Banking", @"Biotechnology", @"Computer Hardware", @"Computer Software", @"Consumer Services", @"Electrical/Electronic Manufacturing", @"Design", @"Financial Services", @"Fine Art", @"Human Resources", @"Investment Banking", @"Management Consulting", @"Pharmaceuticals", @"Staffing and Recruiting", @"Telecommunications", @"Wholesale"];
+//    return @[@"Accounting", @"Banking", @"Biotechnology", @"Computer Hardware", @"Computer Software", @"Consumer Services", @"Electrical/Electronic Manufacturing", @"Design", @"Financial Services", @"Fine Art", @"Human Resources", @"Investment Banking", @"Management Consulting", @"Pharmaceuticals", @"Staffing and Recruiting", @"Telecommunications", @"Wholesale"];
+    return @[@"Accounting", @"Banking", @"Biotechnology", @"Computer Hardware", @"Computer Software", @"Consumer Services", @"Electrical/Electronic Manufacturing", @"Design", @"Financial Services", @"Fine Art"];
 }
 
-- (NSArray *) selectedIndustries {
-    NSMutableArray* selected = [[NSMutableArray alloc] init];
-    for (NSIndexPath *indexPath in self.checkedIndexPaths) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [selected addObject:cell.textLabel.text];
-    }
-    return selected;
-}
+//- (NSArray *) selectedIndustries {
+//    NSMutableArray* selected = [[NSMutableArray alloc] init];
+//    for (NSIndexPath *indexPath in self.checkedIndexPaths) {
+//        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//        [selected addObject:cell.textLabel.text];
+//    }
+//    return selected;
+//}
 
 - (NSMutableDictionary *) industryFirstLetters {
     if (!_industryFirstLetters) {
@@ -85,11 +89,11 @@ static NSString *CellIdentifier = @"Industry Cell";
     return _industryFirstLetters;
 }
 
-- (NSMutableArray *) checkedIndexPaths {
-    if (!_checkedIndexPaths) {
-        _checkedIndexPaths = [[NSMutableArray alloc] init];
+- (NSMutableArray *) checkedIndustries {
+    if (!_checkedIndustries) {
+        _checkedIndustries = [[NSMutableArray alloc] init];
     }
-    return _checkedIndexPaths;
+    return _checkedIndustries;
 }
 
 
@@ -122,7 +126,13 @@ static NSString *CellIdentifier = @"Industry Cell";
     NSString* industry = [[self.industryFirstLetters valueForKey:[[[self.industryFirstLetters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
     cell.textLabel.text = industry;
-    cell.selectionStyle = [self.checkedIndexPaths containsObject:indexPath] ? UITableViewCellAccessoryCheckmark :  UITableViewCellSelectionStyleNone;
+    NSLog(@"industry %@ bool %d", industry, [InterestedIndustry getIndustry:industry forUser:self.currentUser] && [self.checkedIndustries containsObject:industry]);
+    if ([self.checkedIndustries containsObject:industry]) {
+        cell.selectionStyle = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
     return cell;
 }
 
@@ -133,15 +143,22 @@ static NSString *CellIdentifier = @"Industry Cell";
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.selected = NO;
-    if ([self.checkedIndexPaths containsObject:indexPath]) { // clicking on a previously selected item
+    NSLog(@"interested %@", self.currentUser.interestedIndustries);
+    if ([self.checkedIndustries containsObject:cell.textLabel.text]) { // clicking on a previously selected item
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [self.checkedIndexPaths removeObject:indexPath];
+        [self.checkedIndustries removeObject:cell.textLabel.text];
+        [InterestedIndustry interestedIndustry:cell.textLabel.text forUserID:self.currentUser.userID inManagedObjectContext:self.currentUser.managedObjectContext];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.checkedIndexPaths addObject:indexPath];
+        [self.checkedIndustries addObject:cell.textLabel.text];
+        [InterestedIndustry deleteIndustry:cell.textLabel.text forUser:self.currentUser];
     }
     //cell.userInteractionEnabled = YES;
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    
+    for (NSString *ind in self.currentUser.interestedIndustries){
+        NSLog(@"ind %@", ind);
+    }
 }
 
 #pragma mark - SearchDisplayController
@@ -171,6 +188,9 @@ static NSString *CellIdentifier = @"Industry Cell";
     for (id vc in viewController.viewControllers) {
         if ([vc isKindOfClass:[CurrentUserNavigationController class]]) {
             CurrentUserNavigationController *scdtvc = (CurrentUserNavigationController *) vc;
+            scdtvc.currentUser = self.currentUser;
+        } if ([vc isKindOfClass:[SettingsViewController class]]) {
+            SettingsViewController *scdtvc = (SettingsViewController *) vc;
             scdtvc.currentUser = self.currentUser;
         }
         

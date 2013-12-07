@@ -13,5 +13,6 @@
 + (InterestedIndustry *)interestedIndustry:(NSString *)industry
                                  forUserID:(NSString *)userID
                     inManagedObjectContext:(NSManagedObjectContext *)context;
-
++ (void) deleteIndustry:(NSString *)industry forUser:(User *)user;
++ (InterestedIndustry *) getIndustry:(NSString *)industry forUser:(User *)user;
 @end

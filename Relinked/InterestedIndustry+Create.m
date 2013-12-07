@@ -36,4 +36,26 @@
     return interestedIndustry;
 }
 
++ (void) deleteIndustry:(NSString *)industry forUser:(User *)user {
+    NSError *error;
+    InterestedIndustry *ind = [self interestedIndustry:industry forUserID:user.userID inManagedObjectContext:user.managedObjectContext];
+    [user.managedObjectContext deleteObject:ind];
+    [user.managedObjectContext save:&error];
+}
+
++ (InterestedIndustry *) getIndustry:(NSString *)industry forUser:(User *)user {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"InterestedIndustry"];
+    request.predicate = [NSPredicate predicateWithFormat:@"user.userID = %@ and industry = %@", user.userID, industry];
+    
+    NSError *error;
+    NSArray *matches = [user.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!matches || error || ([matches count] < 1 )) {
+        NSLog(@"No interested industry %@ for userID %@", industry, user.userID);
+    } else if ([matches count])  {
+        return [matches firstObject];
+    }
+    return nil;
+}
+
 @end

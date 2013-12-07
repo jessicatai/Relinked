@@ -7,47 +7,45 @@
 //
 
 #import "SettingsViewController.h"
-#import "LinkedInDatabaseAvailability.h"
 #import "RelinkedUserDefaults.h"
 #import "User+LinkedIn.h"
 #import "Request+Relinked.h"
 #import "AppDelegate.h"
 
 #import "IndustryTVC.h"
+#import "InterestedIndustry+Create.h"
 
 @interface SettingsViewController ()
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (strong, nonatomic) IBOutlet UISwitch *otherSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *emailSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *phoneSwitch;
 @property (strong, nonatomic) IBOutlet UITextView *industryTextArea;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
-@property(weak, nonatomic) User *currentUser;
 @end
 
 @implementation SettingsViewController
 
-- (void) awakeFromNib
-{
-    [[NSNotificationCenter defaultCenter] addObserverForName:LinkedInDatabaseAvailabilityNotification
-                                                      object:nil
-                                                       queue:nil
-                                                  usingBlock:^(NSNotification *note) {
-                                                      self.managedObjectContext = note.userInfo[LinkedInDatabaseAvailabilityContext];
-                                                      NSLog(@"Settngs awoke from nib w context");
-                                                  }];
-}
 
 - (void) viewDidAppear:(BOOL)animated {
     // change switches to reflect current user's choices
-    self.emailSwitch.selected = self.currentUser.email ? YES : NO;
-    self.phoneSwitch.selected = self.currentUser.phone ? YES : NO;
-    self.otherSwitch.selected = self.currentUser.other ? YES: NO;
+    if (!self.currentUser.email) NSLog(@"email not selected");
+    self.emailSwitch.on = self.currentUser.email ? YES : NO;
+    self.phoneSwitch.on = self.currentUser.phone ? YES : NO;
+    self.otherSwitch.on = self.currentUser.other ? YES: NO;
     
     // show comma separted list of selected industries
     NSSet *industries = self.currentUser.interestedIndustries;
-    [self.industryTextArea setText:[[industries allObjects] componentsJoinedByString:@","]];
+    NSMutableArray *indTexts = [[NSMutableArray alloc] init];
+    for (InterestedIndustry *ind in [industries allObjects]) {
+        [indTexts addObject:ind.industry];
+    }
+    [self.industryTextArea setText:[indTexts componentsJoinedByString:@", "]];
 }
 
+- (IBAction)editSettings:(UIBarButtonItem *)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)logout:(UIButton *)sender {
     [RelinkedUserDefaults logoutCurrentUser];

@@ -45,6 +45,7 @@
     _managedObjectContext = managedObjectContext;
     if ([RelinkedUserDefaults isUserLoggedIn]) {
         NSLog(@"user already logged in");
+        [self.loginButton setTitle:@"Welcome back!" forState:UIControlStateNormal];
         NSDictionary *userInfo = [RelinkedUserDefaults getCurrentUserInfo];
         self.currentUser = [User userWithInfo:userInfo forCurrentUser:nil inManagedObjectContext:self.managedObjectContext];
         
