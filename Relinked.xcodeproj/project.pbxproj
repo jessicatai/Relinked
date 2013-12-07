@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5025077184EF7D500E65912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025076184EF7D500E65912 /* User.m */; };
 		D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */ = {isa = PBXBuildFile; fileRef = D502507C184EF7FB00E65912 /* User+LinkedIn.m */; };
 		D5025081184F29C700E65912 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025080184F29C700E65912 /* SearchViewController.m */; };
 		D5025088185019FF00E65912 /* RelinkedUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D5025087185019FF00E65912 /* RelinkedUserDefaults.m */; };
@@ -20,13 +19,19 @@
 		D50250A118512BFC00E65912 /* HistoryRequestsCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A018512BFC00E65912 /* HistoryRequestsCDTVC.m */; };
 		D50250A418512E6C00E65912 /* Request+Relinked.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A318512E6C00E65912 /* Request+Relinked.m */; };
 		D50250A71851324C00E65912 /* RelinkedStanfordServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */; };
-		D50250AA1851392B00E65912 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250A91851392B00E65912 /* Request.m */; };
 		D50250B018516DE000E65912 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250AF18516DE000E65912 /* SettingsViewController.m */; };
 		D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250B21851928900E65912 /* MakeRequestViewController.m */; };
 		D50250B51851ABBD00E65912 /* OpenRequestTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D50250B41851ABBD00E65912 /* OpenRequestTableCell.xib */; };
 		D50250BB1851B13C00E65912 /* OpenRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250BA1851B13C00E65912 /* OpenRequestTableViewCell.m */; };
 		D50250C01851E59300E65912 /* SentRequestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250BF1851E59300E65912 /* SentRequestTableViewCell.m */; };
 		D50250C31851E73700E65912 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250C21851E73700E65912 /* CustomTableViewCell.m */; };
+		D50250D51852D0C700E65912 /* ContactMethod+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250D41852D0C700E65912 /* ContactMethod+Create.m */; };
+		D50250D81852D0DB00E65912 /* InterestedIndustry+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250D71852D0DB00E65912 /* InterestedIndustry+Create.m */; };
+		D50250E71852DDAC00E65912 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250E61852DDAC00E65912 /* Request.m */; };
+		D50250EA1852DDAD00E65912 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250E91852DDAD00E65912 /* User.m */; };
+		D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EC1852DDAD00E65912 /* InterestedIndustry.m */; };
+		D50250F01852DDAD00E65912 /* ContactMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EF1852DDAD00E65912 /* ContactMethod.m */; };
+		D50250F31852F00200E65912 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F21852F00200E65912 /* ReminderViewController.m */; };
 		D5544B44184ED63C00DDB685 /* LinkedInFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */; };
 		D5B2AC9C184D96D70052BF33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9B184D96D70052BF33 /* Foundation.framework */; };
 		D5B2AC9E184D96D70052BF33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9D184D96D70052BF33 /* CoreGraphics.framework */; };
@@ -75,8 +80,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D5025075184EF7D500E65912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		D5025076184EF7D500E65912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D502507B184EF7FB00E65912 /* User+LinkedIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+LinkedIn.h"; sourceTree = "<group>"; };
 		D502507C184EF7FB00E65912 /* User+LinkedIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+LinkedIn.m"; sourceTree = "<group>"; };
 		D502507E184EFF3F00E65912 /* LinkedInDatabaseAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedInDatabaseAvailability.h; sourceTree = "<group>"; };
@@ -102,8 +105,6 @@
 		D50250A318512E6C00E65912 /* Request+Relinked.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Request+Relinked.m"; sourceTree = "<group>"; };
 		D50250A51851324C00E65912 /* RelinkedStanfordServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelinkedStanfordServerRequest.h; sourceTree = "<group>"; };
 		D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelinkedStanfordServerRequest.m; sourceTree = "<group>"; };
-		D50250A81851392B00E65912 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
-		D50250A91851392B00E65912 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
 		D50250AE18516DE000E65912 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		D50250AF18516DE000E65912 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		D50250B11851928900E65912 /* MakeRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeRequestViewController.h; sourceTree = "<group>"; };
@@ -115,6 +116,20 @@
 		D50250BF1851E59300E65912 /* SentRequestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SentRequestTableViewCell.m; sourceTree = "<group>"; };
 		D50250C11851E73700E65912 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		D50250C21851E73700E65912 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		D50250D31852D0C700E65912 /* ContactMethod+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContactMethod+Create.h"; sourceTree = "<group>"; };
+		D50250D41852D0C700E65912 /* ContactMethod+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContactMethod+Create.m"; sourceTree = "<group>"; };
+		D50250D61852D0DB00E65912 /* InterestedIndustry+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "InterestedIndustry+Create.h"; sourceTree = "<group>"; };
+		D50250D71852D0DB00E65912 /* InterestedIndustry+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "InterestedIndustry+Create.m"; sourceTree = "<group>"; };
+		D50250E51852DDAC00E65912 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		D50250E61852DDAC00E65912 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		D50250E81852DDAD00E65912 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D50250E91852DDAD00E65912 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D50250EB1852DDAD00E65912 /* InterestedIndustry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterestedIndustry.h; sourceTree = "<group>"; };
+		D50250EC1852DDAD00E65912 /* InterestedIndustry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestedIndustry.m; sourceTree = "<group>"; };
+		D50250EE1852DDAD00E65912 /* ContactMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactMethod.h; sourceTree = "<group>"; };
+		D50250EF1852DDAD00E65912 /* ContactMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMethod.m; sourceTree = "<group>"; };
+		D50250F11852F00200E65912 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
+		D50250F21852F00200E65912 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
 		D5544B42184ED63C00DDB685 /* LinkedInFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedInFetcher.h; sourceTree = "<group>"; };
 		D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedInFetcher.m; sourceTree = "<group>"; };
 		D5B2AC98184D96D70052BF33 /* Relinked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Relinked.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -358,16 +373,24 @@
 			isa = PBXGroup;
 			children = (
 				D5B2AD19184DD6F30052BF33 /* Relinked.xcdatamodeld */,
-				D50250A81851392B00E65912 /* Request.h */,
-				D50250A91851392B00E65912 /* Request.m */,
-				D5025075184EF7D500E65912 /* User.h */,
-				D5025076184EF7D500E65912 /* User.m */,
+				D50250EE1852DDAD00E65912 /* ContactMethod.h */,
+				D50250EF1852DDAD00E65912 /* ContactMethod.m */,
+				D50250EB1852DDAD00E65912 /* InterestedIndustry.h */,
+				D50250EC1852DDAD00E65912 /* InterestedIndustry.m */,
+				D50250E81852DDAD00E65912 /* User.h */,
+				D50250E91852DDAD00E65912 /* User.m */,
+				D50250E51852DDAC00E65912 /* Request.h */,
+				D50250E61852DDAC00E65912 /* Request.m */,
 				D502507B184EF7FB00E65912 /* User+LinkedIn.h */,
 				D502507C184EF7FB00E65912 /* User+LinkedIn.m */,
 				D50250A218512E6C00E65912 /* Request+Relinked.h */,
 				D50250A318512E6C00E65912 /* Request+Relinked.m */,
 				D50250A51851324C00E65912 /* RelinkedStanfordServerRequest.h */,
 				D50250A61851324C00E65912 /* RelinkedStanfordServerRequest.m */,
+				D50250D31852D0C700E65912 /* ContactMethod+Create.h */,
+				D50250D41852D0C700E65912 /* ContactMethod+Create.m */,
+				D50250D61852D0DB00E65912 /* InterestedIndustry+Create.h */,
+				D50250D71852D0DB00E65912 /* InterestedIndustry+Create.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -389,6 +412,8 @@
 				D50250AC18516BF800E65912 /* MainTabBar */,
 				D50250AE18516DE000E65912 /* SettingsViewController.h */,
 				D50250AF18516DE000E65912 /* SettingsViewController.m */,
+				D50250F11852F00200E65912 /* ReminderViewController.h */,
+				D50250F21852F00200E65912 /* ReminderViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -544,18 +569,23 @@
 			files = (
 				D502508E18504C8600E65912 /* SuggestionsCDTVC.m in Sources */,
 				D5B2AD02184D98EF0052BF33 /* AFURLConnectionOperation.m in Sources */,
+				D50250D51852D0C700E65912 /* ContactMethod+Create.m in Sources */,
 				D50250911850607400E65912 /* CurrentUserNavigationController.m in Sources */,
 				D50250BB1851B13C00E65912 /* OpenRequestTableViewCell.m in Sources */,
 				D50250A71851324C00E65912 /* RelinkedStanfordServerRequest.m in Sources */,
 				D5B2ACAC184D96D70052BF33 /* AppDelegate.m in Sources */,
 				D5B2AD0C184DBD460052BF33 /* CoreDataTableViewController.m in Sources */,
 				D5B2AD0F184DBD870052BF33 /* IndustryCDTVC.m in Sources */,
+				D50250F01852DDAD00E65912 /* ContactMethod.m in Sources */,
 				D50250C31851E73700E65912 /* CustomTableViewCell.m in Sources */,
 				D502509B18512AFA00E65912 /* RequestsCDTVC.m in Sources */,
+				D50250EA1852DDAD00E65912 /* User.m in Sources */,
 				D5025081184F29C700E65912 /* SearchViewController.m in Sources */,
-				D50250AA1851392B00E65912 /* Request.m in Sources */,
 				D5B2AD08184DA8850052BF33 /* ContactMethodViewController.m in Sources */,
+				D50250E71852DDAC00E65912 /* Request.m in Sources */,
+				D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */,
 				D50250B018516DE000E65912 /* SettingsViewController.m in Sources */,
+				D50250F31852F00200E65912 /* ReminderViewController.m in Sources */,
 				D5B2ACA8184D96D70052BF33 /* main.m in Sources */,
 				D5B2ACE8184D98E60052BF33 /* NSString+LIAEncode.m in Sources */,
 				D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */,
@@ -575,12 +605,12 @@
 				D5B2ACFD184D98EF0052BF33 /* AFHTTPRequestOperation.m in Sources */,
 				D5B2AD05184D98EF0052BF33 /* AFURLSessionManager.m in Sources */,
 				D5B2ACE5184D98E60052BF33 /* LIALinkedInApplication.m in Sources */,
-				D5025077184EF7D500E65912 /* User.m in Sources */,
 				D502509E18512BD600E65912 /* OpenRequestsCDTVC.m in Sources */,
 				D5B2ACE6184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m in Sources */,
 				D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */,
 				D5B2ACFF184D98EF0052BF33 /* AFHTTPSessionManager.m in Sources */,
 				D5B2ACE7184D98E60052BF33 /* LIALinkedInHttpClient.m in Sources */,
+				D50250D81852D0DB00E65912 /* InterestedIndustry+Create.m in Sources */,
 				D5B2AD00184D98EF0052BF33 /* AFNetworkReachabilityManager.m in Sources */,
 				D5B2ACFE184D98EF0052BF33 /* AFHTTPRequestOperationManager.m in Sources */,
 				D5B2AD15184DC31B0052BF33 /* IndustryTVC.m in Sources */,

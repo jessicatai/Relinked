@@ -52,7 +52,6 @@
         
     } else {
         if ([matches count]) {
-            NSLog(@"found the request!");
             requestEntity = [matches firstObject];
         } else {
             requestEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Request"
@@ -65,8 +64,8 @@
         requestEntity.toUser = [User getUserWithID:toID inManagedObjectContext:context];
         requestEntity.sentDate = sentDate;
         requestEntity.status = requestInfo[QUICKNDIRTY_REQUEST_STATUS_KEY];
-        NSLog(@"from user name %@, to user name %@", requestEntity.fromUser.firstName, requestEntity.toUser.firstName);
     }
+    [context save:&error];
     return requestEntity;
 }
 
@@ -88,7 +87,6 @@
         }
         
     } else if ([matches count] > 0) {
-        NSLog(@"found the requst! %@", matches);
         return matches;
     }
     return nil;

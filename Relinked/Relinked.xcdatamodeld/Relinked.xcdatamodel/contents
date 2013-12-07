@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ContactMethod" representedClassName="ContactMethod" syncable="YES">
+        <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="contactMethods" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="InterestedIndustry" representedClassName="InterestedIndustry" syncable="YES">
+        <attribute name="industry" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="interestedIndustries" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="Request" representedClassName="Request" syncable="YES">
         <attribute name="acceptDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="fromID" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,24 +18,29 @@
         <relationship name="toUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="receivedRequest" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
-        <attribute name="contactMethods" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasSeenWelcome" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="headline" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="industry" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="interestedIndustries" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="other" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="currentUser" inverseEntity="User" syncable="YES"/>
+        <relationship name="contactMethods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactMethod" inverseName="user" inverseEntity="ContactMethod" syncable="YES"/>
         <relationship name="currentUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="connections" inverseEntity="User" syncable="YES"/>
+        <relationship name="interestedIndustries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InterestedIndustry" inverseName="user" inverseEntity="InterestedIndustry" syncable="YES"/>
         <relationship name="receivedRequest" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Request" inverseName="toUser" inverseEntity="Request" syncable="YES"/>
         <relationship name="sentRequest" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Request" inverseName="fromUser" inverseEntity="Request" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Request" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Request" positionX="-117" positionY="189" width="128" height="148"/>
+        <element name="User" positionX="-119" positionY="396" width="128" height="313"/>
+        <element name="InterestedIndustry" positionX="52" positionY="369" width="128" height="73"/>
+        <element name="ContactMethod" positionX="115" positionY="495" width="128" height="73"/>
     </elements>
 </model>

@@ -16,11 +16,14 @@ TODO: dynamically populate industries based on cxn info
 #import "CurrentUserNavigationController.h"
 
 #import "User+LinkedIn.h"
+#import "InterestedIndustry+Create.h"
+#import "ContactMethod+Create.h"
 
 @interface IndustryTVC ()
 
 @property (strong, nonatomic) NSMutableDictionary *industryFirstLetters;
 @property (strong, nonatomic) NSMutableArray *checkedIndexPaths;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -36,7 +39,9 @@ static NSString *CellIdentifier = @"Industry Cell";
     dispatch_async(fetchQ, ^{
 
         [User addPreferencesForUser:self.currentUser withContactMethods:self.contactMethods withIndustries:[self selectedIndustries]];
-        NSLog(@"user contact methods %@", self.currentUser.contactMethods);
+        
+        // save the email, phone, other info
+        
         
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"dispatching back to main queue");
@@ -74,11 +79,13 @@ static NSString *CellIdentifier = @"Industry Cell";
 }
 
 - (NSMutableDictionary *) industryFirstLetters {
-    _industryFirstLetters = [[NSMutableDictionary alloc] init];
-    for (NSString *industry in [self industries]) {
-        NSMutableArray *getIndustries = [[NSMutableArray alloc] initWithArray:[_industryFirstLetters valueForKey:[industry substringToIndex:1]]];
-        [getIndustries addObject:industry];
-        [_industryFirstLetters setObject:getIndustries forKey:[industry substringToIndex:1]];
+    if (!_industryFirstLetters) {
+        _industryFirstLetters = [[NSMutableDictionary alloc] init];
+        for (NSString *industry in [self industries]) {
+            NSMutableArray *getIndustries = [[NSMutableArray alloc] initWithArray:[_industryFirstLetters valueForKey:[industry substringToIndex:1]]];
+            [getIndustries addObject:industry];
+            [_industryFirstLetters setObject:getIndustries forKey:[industry substringToIndex:1]];
+        }
     }
     return _industryFirstLetters;
 }
@@ -99,6 +106,10 @@ static NSString *CellIdentifier = @"Industry Cell";
     return [self.industryFirstLetters count];
 }
 
+- (NSArray *) sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return [self.industryFirstLetters allKeys];
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return [[[self.industryFirstLetters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
@@ -111,7 +122,7 @@ static NSString *CellIdentifier = @"Industry Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     NSString* industry = [[self.industryFirstLetters valueForKey:[[[self.industryFirstLetters allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     
@@ -137,6 +148,19 @@ static NSString *CellIdentifier = @"Industry Cell";
     //cell.userInteractionEnabled = YES;
     [self.tableView reloadData];
 }
+
+#pragma mark - SearchDisplayController
+// TODO implement search bar
+//-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+//shouldReloadTableForSearchString:(NSString *)searchString
+//{
+//    [self.view filterContentForSearchText:searchString
+//                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+//                                      objectAtIndex:[self.searchDisplayController.searchBar
+//                                                     selectedScopeButtonIndex]]];
+//    
+//    return YES;
+//}
 
 
 #pragma mark - Navigation

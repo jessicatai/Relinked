@@ -44,7 +44,6 @@
 
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@",[request.toID isEqualToString:self.currentUser.userID ] ? @"FROM": @"TO", connectionName];
     cell.detailTextLabel.text = [self getDetailedTextForRequest:request];
-    NSLog(@"detailed text %@", cell.detailTextLabel.text);
     
     cell.imageView.image = [UIImage imageWithData:connection.thumbnailData];
     // fetch thumbnail data, only if there is a thumbnail to fetch, if have not requested before
@@ -56,6 +55,7 @@
                 connection.thumbnailData = imageData;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [cell setNeedsLayout];
+                    [tableView reloadData];
                 });
             }];
         });

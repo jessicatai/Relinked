@@ -9,6 +9,8 @@
 #import "User+LinkedIn.h"
 #import "Request+Relinked.h"
 #import "LinkedInFetcher.h"
+#import "ContactMethod+Create.h"
+#import "InterestedIndustry+Create.h"
 
 @implementation User (LinkedIn)
 + (User *)userWithInfo:(NSDictionary *)userDictionary
@@ -50,6 +52,26 @@
         if (currentUser != nil) {
             // all connections are related to current user
             user.currentUser = currentUser;
+            
+            // WARNING: hardcoded mania coming up...
+            
+            // TODO: hardcoded for demo, would instead get from server
+            user.email = [NSString stringWithFormat:@"%@%@@testEmail.com", user.firstName, user.lastName];
+            user.phone = @"555-555-5555";
+            user.other = @"TestSkypeUsername";
+            // add variation of hardcoded data determined by firstName
+            if ([user.firstName compare:@"K"] == NSOrderedAscending) {
+                [ContactMethod loadContactMethodArray:@[@"email",@"phone",@"other"] forUserID:user.userID inManagedObjectContext:context];
+                //user.contactMethods = [@[@"email",@"phone",@"other"] componentsJoinedByString:RELINKED_DELIMITER];
+            } else if ([user.firstName compare:@"T"] == NSOrderedAscending) {
+                [ContactMethod loadContactMethodArray:@[@"email",@"phone"] forUserID:user.userID inManagedObjectContext:context];
+                //[@[@"email",@"phone"] componentsJoinedByString:RELINKED_DELIMITER];
+            } else {
+                [ContactMethod loadContactMethodArray:@[@"email"] forUserID:user.userID inManagedObjectContext:context];
+                //[@[@"email"] componentsJoinedByString:RELINKED_DELIMITER];
+            }
+            // design by choice: don't match by interested industry... let users find people by industry
+            // but can get requests from people in all industries to spice it up a bit...
         }
     }
     
@@ -86,21 +108,47 @@
 }
 
 #pragma mark URL requests to Stanford server
+// old implemention w/o industry and contact entities
+
+//+ (void) addPreferencesForUser:(User *) currentUser
+//            withContactMethods:(NSArray *)contactMethods
+//                withIndustries:(NSArray *) industries{
+//    // save to core data
+//    
+//    currentUser.contactMethods = [contactMethods componentsJoinedByString:RELINKED_DELIMITER];
+//    currentUser.interestedIndustries = [industries componentsJoinedByString:RELINKED_DELIMITER];
+//    NSError *error;
+//    [currentUser.managedObjectContext save:&error];
+//    
+//    // also save to the Stanford server
+//    [self addPreferencesArray:contactMethods forUser:currentUser forTableName:@"ContactMethod" forAction:@"insert"];
+//    [self addPreferencesArray:industries forUser:currentUser forTableName:@"InterestedIndustry" forAction:@"insert"];
+//    
+//    
+//}
 
 + (void) addPreferencesForUser:(User *) currentUser
             withContactMethods:(NSArray *)contactMethods
                 withIndustries:(NSArray *) industries{
     // save to core data
+    NSMutableSet *contactSet = [[NSMutableSet alloc] init];
+    for (NSString *method in contactMethods) {
+        [contactSet addObject:[ContactMethod contactMethod:method forUserID:currentUser.userID inManagedObjectContext:currentUser.managedObjectContext]];
+    }
     
-    currentUser.contactMethods = [contactMethods componentsJoinedByString:RELINKED_DELIMITER];
-    currentUser.interestedIndustries = [industries componentsJoinedByString:RELINKED_DELIMITER];
+    NSMutableSet *industrySet = [[NSMutableSet alloc] init];
+    for (NSString *industry in industries) {
+        [industrySet addObject:[InterestedIndustry interestedIndustry:industry forUserID:currentUser.userID inManagedObjectContext:currentUser.managedObjectContext]];
+    }
+    
+    currentUser.contactMethods = contactSet; //[contactMethods componentsJoinedByString:RELINKED_DELIMITER];
+    currentUser.interestedIndustries = industrySet; //[industries componentsJoinedByString:RELINKED_DELIMITER];
     NSError *error;
     [currentUser.managedObjectContext save:&error];
     
     // also save to the Stanford server
     [self addPreferencesArray:contactMethods forUser:currentUser forTableName:@"ContactMethod" forAction:@"insert"];
     [self addPreferencesArray:industries forUser:currentUser forTableName:@"InterestedIndustry" forAction:@"insert"];
-    
     
 }
 

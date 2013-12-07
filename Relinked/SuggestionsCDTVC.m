@@ -9,6 +9,7 @@
 #import "SuggestionsCDTVC.h"
 #import "MakeRequestViewController.h"
 #import "Request+Relinked.h"
+#import "InterestedIndustry+Create.h"
 
 @interface SuggestionsCDTVC ()
 
@@ -33,8 +34,12 @@
     if (context) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
         // ignore places where we do not have the region name
-        NSArray *interestedIndustries = [self.currentUser.interestedIndustries componentsSeparatedByString:RELINKED_DELIMITER];
-        request.predicate = [NSPredicate predicateWithFormat:@"industry IN %@ and thumbnailURL != nil", interestedIndustries];
+        NSMutableArray *interestedIndustries = [[NSMutableArray alloc] init];
+        for (InterestedIndustry *i in [self.currentUser.interestedIndustries allObjects]){
+            [interestedIndustries addObject:i.industry];
+        }
+        //[self.currentUser.interestedIndustries componentsSeparatedByString:RELINKED_DELIMITER];
+        request.predicate = [NSPredicate predicateWithFormat:@"industry IN %@ and thumbnailURL != nil ", interestedIndustries];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"userID"
                                                                   ascending:NO
                                                                    selector:@selector(localizedStandardCompare:)]];
@@ -93,6 +98,7 @@
         mrvc.currentUser = self.currentUser;
         mrvc.connection = connection;
         mrvc.title = @"Relink Request";
+        mrvc.newRequest = YES;
     }
 }
 

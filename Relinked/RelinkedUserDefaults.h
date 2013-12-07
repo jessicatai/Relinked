@@ -14,4 +14,6 @@
 + (BOOL) isUserLoggedIn;
 + (NSDictionary *) getCurrentUserInfo;
 + (void) logoutCurrentUser;
++ (void) saveAccessToken:(NSString *)token;
++ (NSString *) getSavedAccessToken;
 @end

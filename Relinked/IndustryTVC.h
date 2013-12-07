@@ -15,6 +15,9 @@
 
 @property (nonatomic, strong) User *currentUser;
 @property (nonatomic, strong) NSArray *contactMethods;
+@property (nonatomic, strong) NSString *email;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *other;
 
 - (void) returnToLoginVC;
 

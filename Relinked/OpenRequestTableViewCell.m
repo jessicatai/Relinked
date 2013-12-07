@@ -7,6 +7,7 @@
 //
 
 #import "OpenRequestTableViewCell.h"
+#import "ReminderViewController.h"
 
 @interface OpenRequestTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -22,15 +23,20 @@
 - (IBAction)acceptRequest:(UIButton *)sender {
     NSLog(@"clicked accept");
     // update request status to accept
-    NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
     [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"accept"];
+    
+    // modally add a reminder to connect with available contact options
+    NSString *storyboardName = [self.cdtvc.splitViewController.viewControllers lastObject] ? @"Main_iPad" : @"Main_iPhone";
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyboardName bundle:Nil];
+    UITabBarController *viewController = (UITabBarController *)[storyBoard instantiateViewControllerWithIdentifier:@"reminderViewController"];
+    
+    [self.cdtvc presentViewController:viewController animated:YES completion:nil];
     
 }
 
 - (IBAction)ignoreRequest:(UIButton *)sender {
     NSLog(@"clicked ignore");
     // update request status to ignore
-    NSIndexPath *indexPath = [self.cdtvc.tableView indexPathForCell:self];
     [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"ignore"];
 }
 

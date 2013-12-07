@@ -8,6 +8,7 @@
 
 #import "MakeRequestViewController.h"
 #import "Request+Relinked.h"
+#import "OpenRequestsCDTVC.h"
 
 @interface MakeRequestViewController ()
 @property (strong, nonatomic) IBOutlet UIWebView *profileWebView;
@@ -18,8 +19,18 @@
 @implementation MakeRequestViewController
 
 - (void) viewDidLoad {
-    [self.requestButton setTitle:[NSString stringWithFormat:@"Relink with %@!", self.connection.firstName] forState:UIControlStateNormal];
-    NSLog(@"make request did laod");
+    if (!self.newRequest) {
+        self.requestButton.enabled = NO;
+        self.title = @"Your Connection";
+        [self.requestButton setTitle:@"Pending request" forState:UIControlStateNormal];
+        [self.requestButton setBackgroundColor:[UIColor blueColor]];
+        
+    } else {
+        [self.requestButton setTitle:[NSString stringWithFormat:@"Relink with %@!", self.connection.firstName] forState:UIControlStateNormal];
+    }
+    [self.requestButton sizeToFit]; // account for dynamic text
+    
+    NSLog(@"make request view did load");
 }
 
 - (IBAction)requestRelink:(UIButton *)sender {

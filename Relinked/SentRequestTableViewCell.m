@@ -9,9 +9,7 @@
 #import "SentRequestTableViewCell.h"
 
 @implementation SentRequestTableViewCell
-- (IBAction)deleteRequest:(UIButton *)sender {
-    NSLog(@"TODO: delete request");
-    
+- (IBAction)deleteRequest:(UIButton *)sender {    
     [self.cdtvc deleteRequestWithIndexPath:self.indexPath];
     
 }

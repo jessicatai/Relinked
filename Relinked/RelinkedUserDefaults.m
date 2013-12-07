@@ -13,6 +13,7 @@
 @implementation RelinkedUserDefaults
 
 #define RELINKED_USER_INFO @"relinkedUserInfo"
+#define RELINKED_ACCESS_TOKEN @"relinkedAccessToken"
 
 + (void) loginCurrentUser:(NSDictionary *) userInfo {
     if (userInfo) {
@@ -51,6 +52,15 @@
             return nil;
     }
     return nil;
+}
+
++ (void) saveAccessToken:(NSString *)token {
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:RELINKED_ACCESS_TOKEN];
+    
+}
+
++ (NSString *) getSavedAccessToken {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:RELINKED_ACCESS_TOKEN];
 }
 
 

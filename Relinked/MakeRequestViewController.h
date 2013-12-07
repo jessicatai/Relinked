@@ -13,5 +13,5 @@
 
 @property (nonatomic, strong) User *connection;
 @property (nonatomic, strong) User *currentUser;
-
+@property (nonatomic) BOOL newRequest;
 @end
