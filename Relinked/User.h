@@ -25,6 +25,7 @@
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * phone;
 @property (nonatomic, retain) NSString * other;
+@property (nonatomic, retain) NSString * uid;
 @property (nonatomic, retain) NSSet *connections;
 @property (nonatomic, retain) User *currentUser;
 @property (nonatomic, retain) NSSet *receivedRequest;

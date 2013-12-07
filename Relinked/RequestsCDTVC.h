@@ -9,9 +9,12 @@
 #import "CurrentUserCDTVC.h"
 #import "Request+Relinked.h"
 #import "RelinkedStanfordServerRequest.h"
+#import <MessageUI/MessageUI.h>
 
 @interface RequestsCDTVC : CurrentUserCDTVC
 - (NSString *) getDetailedTextForRequest:(Request *)request; // abstract
 -(void) updateRequestWithIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status;
 -(void) deleteRequestWithIndexPath:(NSIndexPath *)indexPath;
+-(Request *) requestForIndexPath:(NSIndexPath *) indexPath;
+- (void) prepForEmailForIndexPath:(NSIndexPath *)indexPath;
 @end

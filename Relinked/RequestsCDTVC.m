@@ -10,7 +10,7 @@
 #import "OpenRequestsCDTVC.h"
 #import "OpenRequestTableViewCell.h"
 
-@interface RequestsCDTVC ()
+@interface RequestsCDTVC () <MFMailComposeViewControllerDelegate>
 
 @end
 
@@ -77,6 +77,12 @@
 
 -(void) updateRequestWithIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status{
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // hack to counter for off-by-one error when getting indexpath from cell :[
+    if ([status isEqualToString:@"accept"]) {
+        [self prepForEmailForIndexPath:indexPath];
+    }
+    
     NSString *date = [RelinkedStanfordServerRequest convertDateToString:request.sentDate];
     [Request addNewRequestFromUserID:request.fromUser.userID toUserID:request.toUser.userID withAction:action withStatus:status withDate:date inManagedObjectContext:request.managedObjectContext];
 }
@@ -85,5 +91,64 @@
     Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [Request deleteRequest:request];
 }
+
+-(Request *) requestForIndexPath:(NSIndexPath *) indexPath {
+    return [self.fetchedResultsController objectAtIndexPath:indexPath];
+}
+
+
+# pragma mark mail
+- (void) prepForEmailForIndexPath:(NSIndexPath *)indexPath {
+    Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([request.fromUser.userID isEqualToString:self.currentUser.userID]) {
+        // this is an error state
+        return;
+    }
+    // can only accept requests sent to you, so get from user info
+    User *fromUser = request.fromUser;
+    
+    // Email Subject
+    NSString *emailTitle = @"Relinked Request Accepted";
+    // Email Content
+    NSString *messageBody = [NSString stringWithFormat:@"Hi %@,\n\nSaw your request on Relink and would love to meet up with you! \n\n- %@ %@", fromUser.firstName, self.currentUser.firstName, self.currentUser.lastName];
+    // To address
+    NSArray *toRecipents = [NSArray arrayWithObject:fromUser.email];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    [mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    mc.title = @"Request Accepted";
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 
 @end

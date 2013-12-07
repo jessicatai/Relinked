@@ -13,6 +13,10 @@
 @implementation Request (Relinked)
 
 + (void) addAllRequestsInvolvingUser:(User *) currentUser {
+    // first delete existing requests as this gets a clean fetch from stanford server
+    [self deleteAllRequestsInContext:currentUser.managedObjectContext];
+    
+    
     NSLog(@"adding all requests for user");
     // call Stanford server for involved current user's requests
     // example url: http://www.stanford.edu/~jmtai/cgi-bin/cs193p/quickndirtySelectAll.php?tableName=Request&userID=0

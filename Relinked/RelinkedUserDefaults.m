@@ -63,6 +63,10 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:RELINKED_ACCESS_TOKEN];
 }
 
++ (void) deleteSavedAccessToken {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:RELINKED_ACCESS_TOKEN];
+}
+
 
 
 @end

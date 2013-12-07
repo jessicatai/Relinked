@@ -10,5 +10,5 @@
 #import <EventKit/EventKit.h>
 
 @interface ReminderViewController : UIViewController
-
+- (IBAction)unwindFromConfirmationForm:(UIStoryboardSegue *)segue;
 @end

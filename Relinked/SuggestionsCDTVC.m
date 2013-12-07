@@ -39,6 +39,7 @@
             [interestedIndustries addObject:i.industry];
         }
         //[self.currentUser.interestedIndustries componentsSeparatedByString:RELINKED_DELIMITER];
+        // no industries selected = no results (todo: make it all industries)
         request.predicate = [NSPredicate predicateWithFormat:@"industry IN %@ and thumbnailURL != nil ", interestedIndustries];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"userID"
                                                                   ascending:NO

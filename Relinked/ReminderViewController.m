@@ -9,12 +9,11 @@
 #import "ReminderViewController.h"
 
 @interface ReminderViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
-@property (strong, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (strong, nonatomic) IBOutlet UILabel *otherLabel;
-@property (strong, nonatomic) IBOutlet UITextView *notesTextView;
-@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *otherLabel;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 @property (strong, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
@@ -29,8 +28,16 @@
     }];
 }
 - (IBAction)addReminder:(UIButton *)sender {
+
 }
+
 - (IBAction)cancelReminder:(UIButton *)sender {
+    self.notesTextView = nil;
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (IBAction)unwindFromConfirmationForm:(UIStoryboardSegue *)segue {
 }
 
 @end

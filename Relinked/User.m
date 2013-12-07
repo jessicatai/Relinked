@@ -27,6 +27,7 @@
 @dynamic email;
 @dynamic phone;
 @dynamic other;
+@dynamic uid;
 @dynamic connections;
 @dynamic currentUser;
 @dynamic receivedRequest;

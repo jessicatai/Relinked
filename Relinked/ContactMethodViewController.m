@@ -74,14 +74,29 @@
 - (IBAction)tapButton:(UIButton *)sender {
     sender.selected = !sender.isSelected;
     UIButton *btn = (UIButton *)sender;
-    if (sender.selected) {
-        if ([btn.accessibilityLabel isEqualToString:@"email"]) {
-            [self showAndEditTextField:self.emailTextField];
-        } else if ([btn.accessibilityLabel isEqualToString:@"phone"]) {
-            [self showAndEditTextField:self.phoneTextField];
-        } else {
-            [self showAndEditTextField:self.otherTextField];
-        }
+//    if (sender.selected) {
+//        if ([btn.accessibilityLabel isEqualToString:@"email"]) {
+//            [self showAndEditTextField:self.emailTextField];
+//        } else if ([btn.accessibilityLabel isEqualToString:@"phone"]) {
+//            [self showAndEditTextField:self.phoneTextField];
+//        } else {
+//            [self showAndEditTextField:self.otherTextField];
+//        }
+//    }
+    if ([btn.accessibilityLabel isEqualToString:@"email"]) {
+        [self shouldShowTextField:self.emailTextField isSelected:sender.selected];
+    } else if ([btn.accessibilityLabel isEqualToString:@"phone"]) {
+        [self shouldShowTextField:self.phoneTextField isSelected:sender.selected];
+    } else {
+        [self shouldShowTextField:self.otherTextField isSelected:sender.selected];
+    }
+}
+
+- (void) shouldShowTextField:(UITextField *)textField isSelected:(BOOL)selected{
+    if (selected) {
+        [self showAndEditTextField:textField];
+    } else {
+        textField.alpha = 0;
     }
 }
 

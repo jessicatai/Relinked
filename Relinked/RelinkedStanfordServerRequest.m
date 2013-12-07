@@ -20,30 +20,11 @@
     
     [request setHTTPMethod: @"GET"];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
     
     return response1;
-    
-//    [NSURLConnection
-//     sendAsynchronousRequest:request
-//     queue:queue
-//     completionHandler: ^( NSURLResponse *response,
-//                          NSData *data,
-//                          NSError *error)
-//     {
-//        
-//        NSError *requestError;
-//        NSURLResponse *urlResponse = nil;
-//        NSData *response1 = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
-//    
-//        return response1;
-//      }];
-//     
-//     return nil;
-
 }
 
 + (NSDictionary *) jsonResponseForURL:(NSString *)url {

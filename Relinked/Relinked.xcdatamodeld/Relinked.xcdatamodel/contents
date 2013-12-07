@@ -29,6 +29,7 @@
         <attribute name="profileURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="connections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="currentUser" inverseEntity="User" syncable="YES"/>
         <relationship name="contactMethods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContactMethod" inverseName="user" inverseEntity="ContactMethod" syncable="YES"/>
@@ -39,7 +40,7 @@
     </entity>
     <elements>
         <element name="Request" positionX="-117" positionY="189" width="128" height="148"/>
-        <element name="User" positionX="-119" positionY="396" width="128" height="313"/>
+        <element name="User" positionX="-119" positionY="396" width="128" height="328"/>
         <element name="InterestedIndustry" positionX="52" positionY="369" width="128" height="73"/>
         <element name="ContactMethod" positionX="115" positionY="495" width="128" height="73"/>
     </elements>

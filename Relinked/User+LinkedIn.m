@@ -47,6 +47,7 @@
         user.profileURL = [userDictionary valueForKeyPath:LINKEDIN_PROFILE_URL];
         user.thumbnailURL = userDictionary[LINKEDIN_THUMBNAIL];
         user.userID = unique;
+        user.uid = userDictionary[LINKEDIN_USERID];
         
         // only set current user for connection users, not the just authenticated current user
         if (currentUser != nil) {
@@ -151,6 +152,7 @@
     [self addPreferencesArray:industries forUser:currentUser forTableName:@"InterestedIndustry" forAction:@"insert"];
     
 }
+
 
 + (void) addPreferencesArray:(NSArray *) preferences
                      forUser:(User *) currentUser

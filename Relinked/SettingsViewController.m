@@ -11,6 +11,7 @@
 #import "RelinkedUserDefaults.h"
 #import "User+LinkedIn.h"
 #import "Request+Relinked.h"
+#import "AppDelegate.h"
 
 #import "IndustryTVC.h"
 
@@ -33,28 +34,16 @@
 }
 
 - (IBAction)logout:(UIBarButtonItem *)sender {
-    [self prepareAndPresentViewController];
-}
-
-- (void) prepareAndPresentViewController {
+    [RelinkedUserDefaults logoutCurrentUser];
+    [RelinkedUserDefaults deleteSavedAccessToken];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
     NSString *storyboardName = [self.splitViewController.viewControllers lastObject] ? @"Main_iPad" : @"Main_iPhone";
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyboardName bundle:Nil];
-    UITabBarController *controller = (UITabBarController *)[storyBoard instantiateViewControllerWithIdentifier:@"startingNavigationController"];
-
-    NSLog(@"Current user trying to log out %@", self.currentUser.firstName);
-    [RelinkedUserDefaults logoutCurrentUser];
-    // delete core data entities
-    [User deleteAllUsersInContext:self.currentUser.managedObjectContext];
-    [Request deleteAllRequestsInContext:self.currentUser.managedObjectContext];
-    self.currentUser = nil;
-
+    UINavigationController *controller = (UINavigationController *)[storyBoard instantiateViewControllerWithIdentifier:@"startingNavigationController"];
     
-    //[self presentViewController:controller animated:YES completion:nil];
-    
-    IndustryTVC *vc = (IndustryTVC *)self.presentingViewController;
-    //[vc returnToLoginVC];
-    
-    [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+    appDelegate.window.rootViewController = controller; // re-navigate back to root view controller
     
 }
 

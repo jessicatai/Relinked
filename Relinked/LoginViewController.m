@@ -16,16 +16,13 @@
 
 #import "User+LinkedIn.h"
 #import "Request+Relinked.h"
-
-#import "RelinkedUserDefaults.h"
-
 #import "LIALinkedInHttpClient.h"
-#import "LIALinkedInApplication.h"
-#import "AFHTTPRequestOperation.h"
+#import "RelinkedUserDefaults.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
-@property(nonatomic, strong) LIALinkedInHttpClient *client;
+@property (strong, nonatomic) LIALinkedInHttpClient * client;
 @property(weak, nonatomic) User *currentUser;
 @property(strong, nonatomic) NSString *accessToken;
 @end
@@ -64,15 +61,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.client = appDelegate.client;
     
-    NSArray *grantedAccess = @[@"r_fullprofile", @"r_network"];
-    
-    //load the the secret data from an uncommitted LIALinkedInClientExampleCredentials.h file
-    NSString *clientId = LINKEDIN_CLIENT_ID; //the client secret you get from the registered LinkedIn application
-    NSString *clientSecret = LINKEDIN_CLIENT_SECRET; //the client secret you get from the registered LinkedIn application
-    NSString *state = @"DCEEFWF45453sdffef424"; //A long unique string value of your choice that is hard to guess. Used to prevent CSRF
-    LIALinkedInApplication *application = [LIALinkedInApplication applicationWithRedirectURL:@"http://www.linkedin.com" clientId:clientId clientSecret:clientSecret state:state grantedAccess:grantedAccess];
-    self.client = [LIALinkedInHttpClient clientForApplication:application];
 }
 
 

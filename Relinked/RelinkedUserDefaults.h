@@ -16,4 +16,5 @@
 + (void) logoutCurrentUser;
 + (void) saveAccessToken:(NSString *)token;
 + (NSString *) getSavedAccessToken;
++ (void) deleteSavedAccessToken;
 @end

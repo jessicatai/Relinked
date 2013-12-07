@@ -7,6 +7,7 @@
 //
 
 #import "OpenRequestsCDTVC.h"
+#import "MakeRequestViewController.h"
 
 @interface OpenRequestsCDTVC ()
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *addNewRequestButton;
@@ -17,6 +18,11 @@
 - (IBAction)addNewRequest:(UIBarButtonItem *)sender {
     // show suggested results
     
+}
+- (IBAction)fetchRequests:(UIRefreshControl *)sender {
+    [Request addAllRequestsInvolvingUser:self.currentUser];
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)setupFetchedResultsController
@@ -39,11 +45,33 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)prepareViewController:(id)vc
+                     forSegue:(NSString *)segueIdentifer
+                fromIndexPath:(NSIndexPath *)indexPath
 {
-    // show accept or ignore buttons
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    
+    Request *req = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    // get id of other person involved in the request
+    NSString *cxnID = [req.toID isEqualToString:self.currentUser.userID] ? req.fromID : req.toID;
+    User *cxn = [User getUserWithID:cxnID inManagedObjectContext:self.currentUser.managedObjectContext];
+    if ([vc isKindOfClass:[MakeRequestViewController class]]) {
+        MakeRequestViewController *mrvc = (MakeRequestViewController *)vc;
+        mrvc.currentUser = self.currentUser;
+        mrvc.connection = cxn;
+        mrvc.title = @"View Connection";
+        mrvc.newRequest = NO;
+        mrvc.request = req;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    [self prepareViewController:segue.destinationViewController
+                       forSegue:segue.identifier
+                  fromIndexPath:indexPath];
 }
 
 - (NSString *) getDetailedTextForRequest:(Request *)request {

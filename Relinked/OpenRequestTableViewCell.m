@@ -8,6 +8,7 @@
 
 #import "OpenRequestTableViewCell.h"
 #import "ReminderViewController.h"
+#import "EmailViewController.h"
 
 @interface OpenRequestTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -24,13 +25,20 @@
     NSLog(@"clicked accept");
     // update request status to accept
     [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"accept"];
+    // after accepting show an email prompt for the user to optionally send
+   // [self.cdtvc prepForEmailForIndexPath:self.indexPath];
     
-    // modally add a reminder to connect with available contact options
-    NSString *storyboardName = [self.cdtvc.splitViewController.viewControllers lastObject] ? @"Main_iPad" : @"Main_iPhone";
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyboardName bundle:Nil];
-    UITabBarController *viewController = (UITabBarController *)[storyBoard instantiateViewControllerWithIdentifier:@"reminderViewController"];
-    
-    [self.cdtvc presentViewController:viewController animated:YES completion:nil];
+   
+//    
+//    // modally add a reminder to connect with available contact options
+//    NSString *storyboardName = [self.cdtvc.splitViewController.viewControllers lastObject] ? @"Main_iPad" : @"Main_iPhone";
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:storyboardName bundle:Nil];
+//    EmailViewController *viewController = (EmailViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"emailViewController"];
+//    
+//    // prep before presenting
+//    viewController.request = req;
+//    
+//    [self.cdtvc presentViewController:viewController animated:YES completion:nil];
     
 }
 
@@ -39,6 +47,7 @@
     // update request status to ignore
     [self.cdtvc updateRequestWithIndexPath:self.indexPath forAction:@"update" forStatus:@"ignore"];
 }
+
 
 
 @end

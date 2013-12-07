@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "User+LinkedIn.h"
+#import "Request+Relinked.h"
 
 @interface MakeRequestViewController : UIViewController
 
 @property (nonatomic, strong) User *connection;
 @property (nonatomic, strong) User *currentUser;
 @property (nonatomic) BOOL newRequest;
+@property (nonatomic, strong) Request *request;
 @end
