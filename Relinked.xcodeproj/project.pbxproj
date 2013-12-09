@@ -28,8 +28,6 @@
 		D50250E71852DDAC00E65912 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250E61852DDAC00E65912 /* Request.m */; };
 		D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EC1852DDAD00E65912 /* InterestedIndustry.m */; };
 		D50250F01852DDAD00E65912 /* ContactMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250EF1852DDAD00E65912 /* ContactMethod.m */; };
-		D50250F31852F00200E65912 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F21852F00200E65912 /* ReminderViewController.m */; };
-		D50250F918531AE000E65912 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D50250F818531AE000E65912 /* EmailViewController.m */; };
 		D50250FB18531C6600E65912 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50250FA18531C6600E65912 /* MessageUI.framework */; };
 		D5544B44184ED63C00DDB685 /* LinkedInFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */; };
 		D5B2AC9C184D96D70052BF33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B2AC9B184D96D70052BF33 /* Foundation.framework */; };
@@ -120,10 +118,6 @@
 		D50250EC1852DDAD00E65912 /* InterestedIndustry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterestedIndustry.m; sourceTree = "<group>"; };
 		D50250EE1852DDAD00E65912 /* ContactMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactMethod.h; sourceTree = "<group>"; };
 		D50250EF1852DDAD00E65912 /* ContactMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactMethod.m; sourceTree = "<group>"; };
-		D50250F11852F00200E65912 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
-		D50250F21852F00200E65912 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
-		D50250F718531AE000E65912 /* EmailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailViewController.h; sourceTree = "<group>"; };
-		D50250F818531AE000E65912 /* EmailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailViewController.m; sourceTree = "<group>"; };
 		D50250FA18531C6600E65912 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D5544B42184ED63C00DDB685 /* LinkedInFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedInFetcher.h; sourceTree = "<group>"; };
 		D5544B43184ED63C00DDB685 /* LinkedInFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedInFetcher.m; sourceTree = "<group>"; };
@@ -391,10 +385,6 @@
 				D50250AC18516BF800E65912 /* MainTabBar */,
 				D50250AE18516DE000E65912 /* SettingsViewController.h */,
 				D50250AF18516DE000E65912 /* SettingsViewController.m */,
-				D50250F11852F00200E65912 /* ReminderViewController.h */,
-				D50250F21852F00200E65912 /* ReminderViewController.m */,
-				D50250F718531AE000E65912 /* EmailViewController.h */,
-				D50250F818531AE000E65912 /* EmailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -563,7 +553,6 @@
 				D50250E71852DDAC00E65912 /* Request.m in Sources */,
 				D50250ED1852DDAD00E65912 /* InterestedIndustry.m in Sources */,
 				D50250B018516DE000E65912 /* SettingsViewController.m in Sources */,
-				D50250F31852F00200E65912 /* ReminderViewController.m in Sources */,
 				D5B2ACA8184D96D70052BF33 /* main.m in Sources */,
 				D5B2ACE8184D98E60052BF33 /* NSString+LIAEncode.m in Sources */,
 				D50250B31851928900E65912 /* MakeRequestViewController.m in Sources */,
@@ -583,7 +572,6 @@
 				D5B2AD05184D98EF0052BF33 /* AFURLSessionManager.m in Sources */,
 				D5B2ACE5184D98E60052BF33 /* LIALinkedInApplication.m in Sources */,
 				D502509E18512BD600E65912 /* OpenRequestsCDTVC.m in Sources */,
-				D50250F918531AE000E65912 /* EmailViewController.m in Sources */,
 				D5B2ACE6184D98E60052BF33 /* LIALinkedInAuthorizationViewController.m in Sources */,
 				D502507D184EF7FB00E65912 /* User+LinkedIn.m in Sources */,
 				D5B2ACFF184D98EF0052BF33 /* AFHTTPSessionManager.m in Sources */,

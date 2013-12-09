@@ -16,5 +16,5 @@
 -(void) updateRequestWithIndexPath:(NSIndexPath *)indexPath forAction:(NSString *) action forStatus:(NSString *)status;
 -(void) deleteRequestWithIndexPath:(NSIndexPath *)indexPath;
 -(Request *) requestForIndexPath:(NSIndexPath *) indexPath;
-- (void) prepForEmailForIndexPath:(NSIndexPath *)indexPath;
+//- (void) prepForEmailForIndexPath:(NSIndexPath *)indexPath;
 @end

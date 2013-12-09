@@ -50,6 +50,7 @@
 - (IBAction)logout:(UIButton *)sender {
     [RelinkedUserDefaults logoutCurrentUser];
     [RelinkedUserDefaults deleteSavedAccessToken];
+    [User deleteAllUsersInContext:self.currentUser.managedObjectContext];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     

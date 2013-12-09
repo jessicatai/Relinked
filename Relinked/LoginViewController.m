@@ -31,6 +31,7 @@
 
 - (void) awakeFromNib
 {
+    NSLog(@")(!*#&)(@Q*&$)(*awake from nib");
     [[NSNotificationCenter defaultCenter] addObserverForName:LinkedInDatabaseAvailabilityNotification
                                                       object:nil
                                                        queue:nil
@@ -44,15 +45,16 @@
 - (void) setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     _managedObjectContext = managedObjectContext;
     if ([RelinkedUserDefaults isUserLoggedIn]) {
-        NSLog(@"user already logged in");
-        [self.loginButton setTitle:@"Welcome back!" forState:UIControlStateNormal];
+        NSLog(@"user already logged in, getting context %@", managedObjectContext);
         NSDictionary *userInfo = [RelinkedUserDefaults getCurrentUserInfo];
         self.currentUser = [User userWithInfo:userInfo forCurrentUser:nil inManagedObjectContext:self.managedObjectContext];
         
+        NSLog(@"user has %d connections!", [self.currentUser.connections count]);
         // only skip the login page if user was correctly retrieved
-        if (self.currentUser) {
+        if (self.currentUser && self.currentUser.managedObjectContext && [self.currentUser.connections count] > 0) {
             [Request addAllRequestsInvolvingUser:self.currentUser];
-            NSLog(@"user has %d connections!", [self.currentUser.connections count]);
+            
+            [self.loginButton setTitle:@"Welcome back!" forState:UIControlStateNormal];
             [self performSegueWithIdentifier: @"LoggedIn" sender: self];
         }
         
@@ -96,7 +98,7 @@
                     NSArray *connections = [result objectForKey:@"values"];
                     [User loadUsersArray:connections forCurrentUser:currentUser intoManagedObjectContext:self.managedObjectContext];
                     
-                    NSLog(@"*******CURRENT USER HAS %d CONNECTIONS!",[currentUser.connections count]);
+                    NSLog(@"*** Current user has %d connections!",[currentUser.connections count]);
                     
                     // need connection info to set request info
                     [Request addAllRequestsInvolvingUser:self.currentUser]; // get any requests related to user
@@ -106,7 +108,14 @@
                 }];
 
                 self.loginButton.titleLabel.text = [self isLoggedIn] ? @"logged in!": @"not logged in :(";
-                [self performSegueWithIdentifier: @"LoggedIn" sender: self];
+                
+                if (self.managedObjectContext && [currentUser.connections count] > 0) {
+                    [self performSegueWithIdentifier: @"LoggedIn" sender: self];
+                } else {
+                    [self.loginButton setTitle:@"Error retrieving your connections. \nPlease close app and try again." forState:UIControlStateNormal];
+                    [self.view setBackgroundColor:[UIColor redColor]];
+                }
+                
             
                 
             }            failure:^(AFHTTPRequestOperation *operation, NSError *error) {

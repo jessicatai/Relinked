@@ -85,7 +85,7 @@
     
     // hack to counter for off-by-one error when getting indexpath from cell :[
     if ([status isEqualToString:@"accept"]) {
-        [self prepForEmailForIndexPath:indexPath];
+        [self prepForEmailForIndexPath:request];
     }
 }
 
@@ -100,8 +100,8 @@
 
 
 # pragma mark mail
-- (void) prepForEmailForIndexPath:(NSIndexPath *)indexPath {
-    Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
+- (void) prepForEmailForIndexPath:(Request *)request {
+    //Request *request = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if ([request.fromUser.userID isEqualToString:self.currentUser.userID]) {
         // this is an error state
         return;
